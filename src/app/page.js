@@ -4,7 +4,6 @@ export default function Home() {
   return (
     <main className='main-content'>
       <h3 className="text-home-aros">Aros</h3>
-      <h3 className="text-home">une entreprise pleine d'ambitions </h3>
       <h5 className="h5-home">Nous vous donnons la possibilité de personnaliser votre montre afin qu'elle vous ressemble le mieux</h5>
 
       <div>
@@ -24,7 +23,7 @@ export default function Home() {
         <ul className="ul-home">
 
           <li>
-            <Link href="/montre1">
+            <Link href="/aros-nautilus-one">
               <div className="image-container">
                 <img
                   className="imgMontre1"
@@ -45,7 +44,7 @@ export default function Home() {
           </li>
 
           <li>
-            <Link href="/montre2">
+            <Link href="/aros-epure">
               <div className="image-container">
                 <img
                   className="imgMontre1"
@@ -65,7 +64,7 @@ export default function Home() {
           </li>
 
           <li>
-            <Link href="/montre3">
+            <Link href="/aros-goldwatch">
               <div className="image-container">
                 <img
                   className="imgMontre1"

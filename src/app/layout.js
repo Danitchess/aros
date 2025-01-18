@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react';
+import '@fortawesome/fontawesome-free/css/all.css';
+import { CartProvider } from './context/CartContext';
+import { AuthProvider } from "./context/AuthContext";
 
 
 const geistSans = Geist({
@@ -52,39 +55,6 @@ export default function RootLayout({
   };
 
   useEffect(() => {
-    fetch('http://localhost:5000/products')
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error('Error fetching products:', error));
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const addToCart = (productId, quantity) => {
-
-    const existingItem = cart.find(item => item.id === productId);
-
-    if (existingItem) {
-
-      setCart(
-        cart.map(item =>
-          item.id === productId ? { ...item, quantity: item.quantity + quantity } : item
-        )
-      );
-    } else {
-      fetch('http://localhost:5000/products')
-        .then(res => res.json())
-        .then(products => {
-          const product = products.find(p => p.id === productId);
-          if (product) {
-            setCart([...cart, { ...product, quantity }]);
-          }
-        })
-        .catch(error => console.error('Error fetching products:', error));
-    }
-  };
-
-  useEffect(() => {
     let lastScrollY = 0; 
     let cumulativeScroll = 0; 
     const scrollThreshold = 100; 
@@ -123,20 +93,20 @@ export default function RootLayout({
         <header className={`header ${headerVisible ? '' : 'hidden'}`}>
 
 <div>
-  <Link href="/home"><img id="logo" src="/aros-2.png" alt="logo" height={110} width={160} /></Link>
+  <Link href="/"><img id="logo" src="/aros-2.png" alt="logo" height={110} width={160} /></Link>
 </div>
 
 <nav className='nav-header'>
   <ul>
-    <Link href="/boutique">Boutique</Link>
-    <Link href="/à-propos">À propos</Link>
+    <Link href="/shop">Boutique</Link>
+    <Link href="/about">À propos</Link>
     <Link href="/contact">Contact</Link>
   </ul>
 
 </nav>
 
 <div className='header-btn'>
-  <button className='btn-panier'><Link href="/panier"><i className="fa-solid fa-bag-shopping"></i></Link></button>
+  <button className='btn-panier'><Link href="/cart"><i className="fa-solid fa-bag-shopping"></i></Link></button>
   {totalItemsInCart > 0 && (
     <span className="nbr-panier-item">{totalItemsInCart}</span>
   )}
@@ -147,19 +117,19 @@ export default function RootLayout({
     <nav className="btn-close-menu" onClick={closeMenu}>&times;</nav>
     {isLoggedIn ? (
       <>
-        <Link className="Link-boutique" href="/boutique" onClick={closeMenu} >Boutique</Link>
-        <Link className="Link-page" href="/à-propos" onClick={closeMenu} >À propos</Link>
+        <Link className="Link-boutique" href="/shop" onClick={closeMenu} >Boutique</Link>
+        <Link className="Link-page" href="/about" onClick={closeMenu} >À propos</Link>
         <Link className="Link-page" href="/contact" onClick={closeMenu} >Contact</Link>
-        <Link className="Link-account" onClick={closeMenu} href="/account"><button className="Link-btn-login-register-account-logout">Mon compte <i className="fa-solid fa-arrow-right"></i></button></Link>
+        <Link className="Link-account" onClick={closeMenu} href="/my-account"><button className="Link-btn-login-register-account-logout">Mon compte <i className="fa-solid fa-arrow-right"></i></button></Link>
         <nav className="Link-logout" onClick={handleLogout}><button className="Link-btn-login-register-account-logout">Se déconnecter <i className="fa-solid fa-arrow-right"></i></button></nav>
       </>
     ) : (
       <>
-        <Link className="Link-boutique" href="/boutique" onClick={closeMenu} >Boutique</Link>
-        <Link className="Link-page" href="/à-propos" onClick={closeMenu} >À propos</Link>
+        <Link className="Link-boutique" href="/shop" onClick={closeMenu} >Boutique</Link>
+        <Link className="Link-page" href="/about" onClick={closeMenu} >À propos</Link>
         <Link className="Link-page" href="/contact" onClick={closeMenu} >Contact</Link>
-        <Link className="Link-login" onClick={closeMenu} href="/se-connecter"><button className="Link-btn-login-register-account-logout">Se connecter <i className="fa-solid fa-arrow-right"></i></button></Link>
-        <Link className="Link-register" onClick={closeMenu} href="/s'inscrire"><button className="Link-btn-login-register-account-logout">S'inscrire <i className="fa-solid fa-arrow-right"></i></button></Link>
+        <Link className="Link-login" onClick={closeMenu} href="/login"><button className="Link-btn-login-register-account-logout">Se connecter <i className="fa-solid fa-arrow-right"></i></button></Link>
+        <Link className="Link-register" onClick={closeMenu} href="/register"><button className="Link-btn-login-register-account-logout">S'inscrire <i className="fa-solid fa-arrow-right"></i></button></Link>
       </>
     )}
   </div>
@@ -170,21 +140,47 @@ export default function RootLayout({
     <nav className="btn-close-menu" onClick={closeMenu}>&times;</nav>
     {isLoggedIn ? (
       <>
-        <Link className="Link-account" onClick={closeMenu} href="/account">Mon compte</Link>
+        <Link className="Link-account" onClick={closeMenu} href="/my-account">Mon compte</Link>
         <nav className="Link-logout" onClick={handleLogout}>Se déconnecter</nav>
       </>
     ) : (
       <>
-        <Link className="Link-login" onClick={closeMenu} href="/se-connecter">Se connecter</Link>
-        <Link className="Link-register" onClick={closeMenu} href="/s'inscrire">S'inscrire</Link>
+        <Link className="Link-login" onClick={closeMenu} href="/login">Se connecter</Link>
+        <Link className="Link-register" onClick={closeMenu} href="/register">S'inscrire</Link>
       </>
     )}
   </div>
 </div>
 
-
 </header>
-        {children}
+    <AuthProvider>
+    <CartProvider>
+      {children}
+    </CartProvider>
+    </AuthProvider>
+
+        <footer>
+        <div className='footer'>
+          <div className='nav2'>
+            <a href="https://www.instagram.com/aros.watch/" className="nav-link2" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@aros.watch" className="nav-link2" target="_blank" rel="noreferrer"><i className="fa-brands fa-tiktok"></i></a>
+            <p className="">Téléphone : <a className="lien-tel-footer" href="tel: +32 473 34 84 34" target="_blank" rel="noreferrer">+32 473 34 84 34</a></p>
+            <p className=''>E-mail : <a className='lien-email-footer' href="https://mail.google.com/mail/u/1/#inbox?compose=jrjtXDztQGLpPvMjJDfvqncNbCBxDrwpFcKXHhWZSDNMszjzDMqpQxXtKtFprGBLKcHTXLbX" target="_blank" rel="noreferrer">aros.wtch@gmail.com</a></p>
+          </div>
+
+          <br></br>
+
+          <div className='nav-footer'>
+            <Link href="/">Accueil</Link>
+            <Link href="/shop">Boutique</Link>
+            <Link href="/about">À propos</Link>
+            <Link href="/contact">Contact</Link>
+          </div>
+
+          <p>Copyright &copy;2025, Designed by Khalife Dani  </p>
+
+        </div>
+      </footer>
       </body>
     </html>
   );
