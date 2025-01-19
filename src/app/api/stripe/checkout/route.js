@@ -10,6 +10,7 @@ if (!stripeSecretKey) {
 }
 
 const stripe = new Stripe(stripeSecretKey);
+console.log(stripeSecretKey)
 
 export async function POST(req) {
   const { allProducts, totalAmount, userEmail } = await req.json();
