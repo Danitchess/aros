@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 
-export default function Montre1 ({ addToCart }) {
+export default function Montre1 () {
   const [mainImage, setMainImage] = useState('/img-modeles/modele-nautilus1.png');
   const [selectedImageName, setSelectedImageName] = useState('Dégradé noir vers bleu'); 
   const [smallImages] = useState([
@@ -82,7 +82,7 @@ export default function Montre1 ({ addToCart }) {
                 color: '#fff',
                 cursor: 'pointer',
               }}
-              onClick={() => addToCart(item)}
+              
             >
               Ajouter au panier
             </button>

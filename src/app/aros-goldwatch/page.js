@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 
-export default function Montre3 ({ addToCart }) {
+export default function Montre3 () {
   const item = { id: 3, name: 'Cadran', price: 0 }; 
 
   return (
