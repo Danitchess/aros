@@ -1,7 +1,7 @@
 "use server"; 
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import db from '@/lib/db';
+import db from "../../../../lib/db"; 
 
 const saltRounds = 10;
 const secretKey = process.env.SECRET_KEY; 

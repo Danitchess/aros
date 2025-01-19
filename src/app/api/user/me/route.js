@@ -1,6 +1,6 @@
 "use server"
 import jwt from 'jsonwebtoken';
-import db from '@/lib/db';  
+import db from "../../../../lib/db";  
 const secretKey = process.env.SECRET_KEY;
 
 export async function GET(req) {

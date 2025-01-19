@@ -1,7 +1,7 @@
 "use server";
 
 import nodemailer from "nodemailer";
-import db from "@/lib/db"; 
+import db from "../../../../lib/db"; 
 
 export async function POST(req) {
   const { firstname, lastname, phone, email, subject, text } = await req.json();
