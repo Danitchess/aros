@@ -1,10 +1,15 @@
 "use server";
 
 import Stripe from "stripe";
-import db from "@/lib/db"; // Assurez-vous que db est bien configuré avec mysql2/promise
+import db from "../../../../lib/db"; 
 import { NextResponse } from "next/server";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET);
+const stripeSecretKey = process.env.STRIPE_SECRET;
+if (!stripeSecretKey) {
+  throw new Error('Stripe Secret Key is missing');
+}
+
+const stripe = new Stripe(stripeSecretKey);
 
 export async function POST(req) {
   const { allProducts, totalAmount, userEmail } = await req.json();
