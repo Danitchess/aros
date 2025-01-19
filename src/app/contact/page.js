@@ -46,7 +46,7 @@ export default function Contact ()  {
         <main className="main-contact">
 
             <div className="contact-gauche">
-                <h2>INFORMATIONS</h2>
+                <h2 className='h2-contact'>INFORMATIONS</h2>
                 <p className="email" ><i className="fa-solid fa-envelope"></i> E-mail : <a className="lien-email-contact" href="https://mail.google.com/mail/u/0/?pli=1#inbox?compose=jrjtXSqLRHkvJhjCPjCpZzpwDfvhnBhqQzwfBgspDTXfstxJQXqfwrXrdkGcvvcjCSgrbhhW" target="_blank" rel="noreferrer">aros.wtch@gmail.com</a></p>
                 <p className="tel"><i className="fa-solid fa-phone"></i> Nous appeler : <a className="lien-tel-contact" href="tel:+32473348434" target="_blank" rel="noreferrer">+32 473 34 84 34</a></p>
             </div>

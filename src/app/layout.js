@@ -117,19 +117,19 @@ export default function RootLayout({
     <nav className="btn-close-menu" onClick={closeMenu}>&times;</nav>
     {isLoggedIn ? (
       <>
-        <Link className="Link-boutique" href="/shop" onClick={closeMenu} >Boutique</Link>
-        <Link className="Link-page" href="/about" onClick={closeMenu} >À propos</Link>
-        <Link className="Link-page" href="/contact" onClick={closeMenu} >Contact</Link>
-        <Link className="Link-account" onClick={closeMenu} href="/my-account"><button className="Link-btn-login-register-account-logout">Mon compte <i className="fa-solid fa-arrow-right"></i></button></Link>
-        <nav className="Link-logout" onClick={handleLogout}><button className="Link-btn-login-register-account-logout">Se déconnecter <i className="fa-solid fa-arrow-right"></i></button></nav>
+        <Link className="navlink-boutique" href="/shop" onClick={closeMenu} >Boutique</Link>
+        <Link className="navlink-page" href="/about" onClick={closeMenu} >À propos</Link>
+        <Link className="navlink-page" href="/contact" onClick={closeMenu} >Contact</Link>
+        <Link className="navlink-account" onClick={closeMenu} href="/my-account"><button className="navlink-btn-login-register-account-logout">Mon compte <i className="fa-solid fa-arrow-right"></i></button></Link>
+        <nav className="navlink-logout" onClick={handleLogout}><button className="navlink-btn-login-register-account-logout">Se déconnecter <i className="fa-solid fa-arrow-right"></i></button></nav>
       </>
     ) : (
       <>
-        <Link className="Link-boutique" href="/shop" onClick={closeMenu} >Boutique</Link>
-        <Link className="Link-page" href="/about" onClick={closeMenu} >À propos</Link>
-        <Link className="Link-page" href="/contact" onClick={closeMenu} >Contact</Link>
-        <Link className="Link-login" onClick={closeMenu} href="/login"><button className="Link-btn-login-register-account-logout">Se connecter <i className="fa-solid fa-arrow-right"></i></button></Link>
-        <Link className="Link-register" onClick={closeMenu} href="/register"><button className="Link-btn-login-register-account-logout">S'inscrire <i className="fa-solid fa-arrow-right"></i></button></Link>
+        <Link className="navlink-boutique" href="/shop" onClick={closeMenu} >Boutique</Link>
+        <Link className="navlink-page" href="/about" onClick={closeMenu} >À propos</Link>
+        <Link className="navlink-page" href="/contact" onClick={closeMenu} >Contact</Link>
+        <Link className="navlink-login" onClick={closeMenu} href="/login"><button className="navlink-btn-login-register-account-logout">Se connecter <i className="fa-solid fa-arrow-right"></i></button></Link>
+        <Link className="navlink-register" onClick={closeMenu} href="/register"><button className="navlink-btn-login-register-account-logout">S'inscrire <i className="fa-solid fa-arrow-right"></i></button></Link>
       </>
     )}
   </div>
@@ -140,19 +140,20 @@ export default function RootLayout({
     <nav className="btn-close-menu" onClick={closeMenu}>&times;</nav>
     {isLoggedIn ? (
       <>
-        <Link className="Link-account" onClick={closeMenu} href="/my-account">Mon compte</Link>
-        <nav className="Link-logout" onClick={handleLogout}>Se déconnecter</nav>
+        <Link className="navlink-account" onClick={closeMenu} href="/my-account">Mon compte</Link>
+        <nav className="navlink-logout" onClick={handleLogout}>Se déconnecter</nav>
       </>
     ) : (
       <>
-        <Link className="Link-login" onClick={closeMenu} href="/login">Se connecter</Link>
-        <Link className="Link-register" onClick={closeMenu} href="/register">S'inscrire</Link>
+        <Link className="navlink-login" onClick={closeMenu} href="/login">Se connecter</Link>
+        <Link className="navlink-register" onClick={closeMenu} href="/register">S'inscrire</Link>
       </>
     )}
   </div>
 </div>
 
 </header>
+
     <AuthProvider>
     <CartProvider>
       {children}

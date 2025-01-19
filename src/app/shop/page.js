@@ -25,25 +25,25 @@ export default function PersoMontre () {
 
         /* ---------------------Hommes-------------------------*/
 
-        { id: 10, type: 'Bracelet', name: 'Bracelet argent mailles serrées', price: 18.15, imageUrl: '/img-bracelet/bracelet-seiko-argent-20mm.png' },
-        { id: 11, type: 'Bracelet', name: 'Bracelet argent et or mailles serrées', price: 18.15, imageUrl: '/img-bracelet/bracelet-seiko-argent-or-20mm.png' },
-        { id: 12, type: 'Bracelet', name: 'Bracelet argent et or', price: 18.15, imageUrl: '/img-bracelet/bracelet-argent-or-20mm.png' },
-        { id: 12.1, type: 'Bracelet', name: 'Bracelet argent et or', price: 18.15, imageUrl: '/img-bracelet/bracelet-argent-or-20mm-12.1.png' },
-        { id: 13, type: 'Bracelet', name: 'Bracelet argent et rose mailles serrées', price: 18.15, imageUrl: '/img-bracelet/bracelet-seiko-argent-rose-20mm.png' },
-        { id: 14, type: 'Bracelet', name: 'Bracelet argent', price: 18.15, imageUrl: '/img-bracelet/bracelet-argent-20mm.png' },
-        { id: 14.1, type: 'Bracelet', name: 'Bracelet argent', price: 18.15, imageUrl: '/img-bracelet/bracelet-argent-20mm-14.1.png' },
+        { id: 10, type: 'Bracelet', name: 'Bracelet argent mailles serrées', price: 16, imageUrl: '/img-bracelet/bracelet-seiko-argent-20mm.png' },
+        { id: 11, type: 'Bracelet', name: 'Bracelet argent et or mailles serrées', price: 27, imageUrl: '/img-bracelet/bracelet-seiko-argent-or-20mm.png' },
+        { id: 12, type: 'Bracelet', name: 'Bracelet argent et or', price: 27, imageUrl: '/img-bracelet/bracelet-argent-or-20mm.png' },
+        { id: 12.1, type: 'Bracelet', name: 'Bracelet argent et or', price: 27, imageUrl: '/img-bracelet/bracelet-argent-or-20mm-12.1.png' },
+        { id: 13, type: 'Bracelet', name: 'Bracelet argent et rose mailles serrées', price: 27, imageUrl: '/img-bracelet/bracelet-seiko-argent-rose-20mm.png' },
+        { id: 14, type: 'Bracelet', name: 'Bracelet argent', price: 16, imageUrl: '/img-bracelet/bracelet-argent-20mm.png' },
+        { id: 14.1, type: 'Bracelet', name: 'Bracelet argent', price: 16, imageUrl: '/img-bracelet/bracelet-argent-20mm-14.1.png' },
 
-        { id: 20, type: 'Boitier', name: 'Boitier argent, lunette entaillée', price: 27.25, imageUrl: '/img-boitier/boitier-seiko-argent-39mm.1.png' },
-        { id: 21, type: 'Boitier', name: 'Boitier argent avec lunette', price: 27.25, imageUrl: '/img-boitier/boitier-argent-bezel.png' },
-        { id: 22, type: 'Boitier', name: 'Boitier argent et or, lunette entaillée', price: 27.25, imageUrl: '/img-boitier/boitier-seiko-argent-or-39mm.png' },
-        { id: 23, type: 'Boitier', name: 'Boitier argent et or, lunette lisse', price: 27.25, imageUrl: '/img-boitier/boitier-lisse-argent-or-39mm.png' },
-        { id: 24, type: 'Boitier', name: 'Boitier argent et rose, lunette entaillée 39mm', price: 27.25, imageUrl: '/img-boitier/boitier-seiko-argent-rose-39mm.png' },
+        { id: 20, type: 'Boitier', name: 'Boitier argent, lunette entaillée', price: 30, imageUrl: '/img-boitier/boitier-seiko-argent-39mm.1.png' },
+        { id: 21, type: 'Boitier', name: 'Boitier argent avec lunette', price: 30, imageUrl: '/img-boitier/boitier-argent-bezel.png' },
+        { id: 22, type: 'Boitier', name: 'Boitier argent et or, lunette entaillée', price: 45, imageUrl: '/img-boitier/boitier-seiko-argent-or-39mm.png' },
+        { id: 23, type: 'Boitier', name: 'Boitier argent et or, lunette lisse', price: 45, imageUrl: '/img-boitier/boitier-lisse-argent-or-39mm.png' },
+        { id: 24, type: 'Boitier', name: 'Boitier argent et rose, lunette entaillée 39mm', price: 45, imageUrl: '/img-boitier/boitier-seiko-argent-rose-39mm.png' },
 
-        { id: 30, type: 'Cadran', name: 'Cadran noir', price: 27.25, imageUrl: '/img-cadrans/cadran-noir.png' },
-        { id: 31, type: 'Cadran', name: 'Cadran blanc', price: 27.25, imageUrl: '/img-cadrans/cadran-blanc.png' },
-        { id: 32, type: 'Cadran', name: 'Cadran bleu', price: 27.25, imageUrl: '/img-cadrans/cadran-bleu.png' },
-        { id: 33, type: 'Cadran', name: 'Cadran nautilus vert', price: 27.25, imageUrl: '/img-cadrans/cadran-nautilus-vert.png' },
-        { id: 34, type: 'Cadran', name: 'Cadran minutetime vert', price: 27.25, imageUrl: '/img-cadrans/cadran-minutetime-vert.png' },
+        { id: 30, type: 'Cadran', name: 'Cadran noir', price: 23, imageUrl: '/img-cadrans/cadran-noir.png' },
+        { id: 31, type: 'Cadran', name: 'Cadran blanc', price: 23, imageUrl: '/img-cadrans/cadran-blanc.png' },
+        { id: 32, type: 'Cadran', name: 'Cadran bleu', price: 23, imageUrl: '/img-cadrans/cadran-bleu.png' },
+        { id: 33, type: 'Cadran', name: 'Cadran nautilus vert', price: 23, imageUrl: '/img-cadrans/cadran-nautilus-vert.png' },
+        { id: 34, type: 'Cadran', name: 'Cadran minutetime vert', price: 23, imageUrl: '/img-cadrans/cadran-minutetime-vert.png' },
 
         { id: 40, type: 'Couleur Logo', name: 'Logo noir', price: 0, imageUrl: '/img-logos/logo-noir.png' },
         { id: 41, type: 'Couleur Logo', name: 'Logo blanc', price: 0, imageUrl: '/img-logos/logo-blanc.png' },
@@ -60,7 +60,7 @@ export default function PersoMontre () {
         { id: 70, type: 'Couleur Date', name: 'Mouvement NH35 blanc', price: 58, imageUrl: 'date-blanc.png' },
         { id: 71, type: 'Couleur Date', name: 'Mouvement NH35 noir', price: 58, imageUrl: 'date-noir.png' },
 
-        { id: 80, type: 'Loupe', name: 'Loupe', price: 2, imageUrl: 'vide.png' },
+        { id: 80, type: 'Loupe', name: 'Sans loupe', price: 0, imageUrl: 'vide.png' },
         { id: 81, type: 'Loupe', name: 'Loupe', price: 0, imageUrl: 'loupe.png' },
 
         { id: 90, type: 'Lunette', name: 'Lunette blanche chiffres en relief', price: 6, imageUrl: '/img-lunettes/lunette-blanc-relief.png'},
@@ -418,7 +418,7 @@ export default function PersoMontre () {
 
                                     style={{
                                         border: isSelected ? '2px solid black' : '1px solid black',
-                                        backgroundColor: isSelected ? '#bda208' : '#cacaca',
+                                        backgroundColor: isSelected ? '#39393f' : '#cacaca',
                                         padding: '5px',
                                         marginLeft: '5px',
                                         cursor: 'pointer',

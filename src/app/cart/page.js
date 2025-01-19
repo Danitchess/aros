@@ -102,7 +102,7 @@ export default function Panier() {
 
   /*const fixedProductPrice = parseFloat(fixedProducts.unit_amount.value) * parseInt(fixedProducts.quantity);*/
 
-  const finalTotalCart = (totalCart + /*fixedProductPrice*/ + 10).toFixed(2);
+  const finalTotalCart = (totalCart /*fixedProductPrice*/).toFixed(2);
 
   const formatPrice = (price) => {
     return `${parseFloat(price).toFixed(0)}`; 

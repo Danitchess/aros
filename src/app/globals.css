@@ -1,6 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 /*:root {
   --background: #ffffff;
@@ -72,7 +69,7 @@ html, body {
   transition: 0.4s;
   flex-direction: column;
   position: fixed;
-  top: -350px;
+  top: -550px;
   margin-left: -75px;
   border-radius: 20px;
 }
@@ -220,6 +217,7 @@ html, body {
   font-size: 20px;
   color: #000000;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .btn-close-menu {
@@ -228,6 +226,7 @@ html, body {
   right: 25px;
   font-size: 36px;
   color: #000000;
+  cursor: pointer;
 }
 
 #logo {
@@ -1031,8 +1030,8 @@ html, body {
 
 .contact-droite {
   border: 1px solid #bda208;
-  background-color: #000000;
-  color: white;
+  background-color: #a7a7a7;
+  color: #39393f;
   width: 100%;
   max-width: 700px;
   padding: 20px;
@@ -1057,6 +1056,7 @@ html, body {
   width: 30%;
   height: 25px;
   border-radius: 5px;
+  border: solid 1px #39393f;
 }
 
 .nom-text {
@@ -1070,6 +1070,7 @@ html, body {
   width: 30%;
   height: 25px;
   border-radius: 5px;
+  border: solid 1px #39393f;
 }
 
 .tel-text {
@@ -1082,6 +1083,7 @@ html, body {
   width: 30%;
   height: 25px;
   border-radius: 5px;
+  border: solid 1px #39393f;
 }
 
 .email-text {
@@ -1097,6 +1099,7 @@ html, body {
   height: 25px;
   border-radius: 5px;
   margin-bottom: 15px;
+  border: solid 1px #39393f;
 }
 
 .sujet-text {
@@ -1111,6 +1114,7 @@ html, body {
   width: 30%;
   height: 25px;
   border-radius: 5px;
+  border: solid 1px #39393f;
 }
 
 .message-text {
@@ -1125,11 +1129,13 @@ html, body {
   overflow-y: auto;
   margin-left: 208px;
   border-radius: 5px;
+  border: solid 1px #39393f;
 }
 
 .envoyer-contact {
   margin: 20px auto;
   background-color: #bda208;
+  border: solid 1px #39393f;
   border-radius: 5px;
   color: #ffffff;
   padding: 10px 20px;
@@ -1206,13 +1212,74 @@ em {
   }
 }
 
+@media screen and (max-width: 970px) {
 
-
-@media screen and (min-width: 768px) {
   .main-contact {
-    flex-direction: row;
+    display: grid;
+    flex-direction: column;
+  }
+
+  .contact-gauche {
+    text-align: center;
+    margin: 0px;
+  }
+  
+  .fa-envelope,
+  .fa-phone {
+    font-size: 25px;
+  }
+  
+  .contact-droite {
+    max-width: 600px;
+    margin: 30px 55px 0px ;
+  }
+  
+  .zonetexte {
+    width: 50%;
+  }
+  
+  em {
+    font-size: 14px;
+    margin: 30px 0px;
+    text-align: left;
+    display: block;
   }
 }
+
+@media screen and (max-width: 915px) {
+
+  .main-contact {
+    display: grid;
+    flex-direction: column;
+  }
+
+  .contact-gauche {
+    text-align: center;
+    margin: 0px;
+  }
+  
+  .fa-envelope,
+  .fa-phone {
+    font-size: 25px;
+  }
+  
+  .contact-droite {
+    max-width: 600px;
+    margin: 30px 115px 0px ;
+  }
+  
+  .zonetexte {
+    width: 50%;
+  }
+  
+  em {
+    font-size: 14px;
+    margin: 30px 0px;
+    text-align: left;
+    display: block;
+  }
+}
+
 
 @media screen and (max-width: 768px) {
 
@@ -1248,6 +1315,128 @@ em {
   }
 }
 
+@media screen and (min-width: 768px) {
+  .main-contact {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 710px) {
+
+  .main-contact {
+    display: grid;
+    flex-direction: column;
+  }
+
+  .contact-gauche {
+    text-align: center;
+    margin: 0px;
+  }
+  
+  .fa-envelope,
+  .fa-phone {
+    font-size: 25px;
+  }
+  
+  .contact-droite {
+    max-width: 400px;
+    margin: 30px 0px 0px ;
+  }
+  
+  .zonetexte {
+    width: 50%;
+    height: 250px;
+  }
+  
+  em {
+    font-size: 14px;
+    margin: 30px 0px;
+    text-align: left;
+    display: block;
+  }
+}
+
+@media screen and (min-width: 710px) {
+  .main-contact {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .contact-gauche {
+    text-align: center;
+    margin: -50px 0px 0px;
+  }
+  
+  .fa-envelope,
+  .fa-phone {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  
+  .contact-droite {
+    max-width: 330px;
+    margin: 30px 55px 0px ;
+  }
+  
+  .prenom-text {
+    margin-left: 0px;
+    margin-right: 113px;
+  }
+  
+  .prenom-zone, .nom-zone {
+    width: 50%;
+  }
+  
+  .nom-text {
+    margin-left: 0px;
+    margin-right: 130px;
+  }
+  
+  .tel-text {
+    margin-left: 0px;
+    margin-right: 26px;
+  }
+  
+  .tel-zone {
+    width: 50%;
+  }
+  
+  .email-text {
+    margin-left: 0px;
+    margin-right: 67px;
+  }
+  
+  .email-zone {
+    width: 50%;
+  }
+  
+  .sujet-text {
+    margin-left: 0px;
+    margin-right: 137px;
+  }
+  
+  .sujet-zone {
+    width: 50%;
+  }
+  
+  .message-text {
+    margin-left: 0px;
+  }
+  
+  .zonetexte {
+    margin-left: 80px;
+    width: 75%;
+  }
+  
+  em {
+    font-size: 14px;
+    margin: 30px 0px;
+    text-align: left;
+    display: block;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .contact-gauche {
     text-align: center;
@@ -1261,8 +1450,317 @@ em {
   }
   
   .contact-droite {
-    max-width: 400px;
-    margin: 30px -21px 0px ;
+    max-width: 330px;
+    margin: 30px -20px 0px ;
+  }
+  
+  .prenom-text {
+    margin-left: 0px;
+    margin-right: 113px;
+  }
+  
+  .prenom-zone, .nom-zone {
+    width: 50%;
+  }
+  
+  .nom-text {
+    margin-left: 0px;
+    margin-right: 130px;
+  }
+  
+  .tel-text {
+    margin-left: 0px;
+    margin-right: 26px;
+  }
+  
+  .tel-zone {
+    width: 50%;
+  }
+  
+  .email-text {
+    margin-left: 0px;
+    margin-right: 67px;
+  }
+  
+  .email-zone {
+    width: 50%;
+  }
+  
+  .sujet-text {
+    margin-left: 0px;
+    margin-right: 137px;
+  }
+  
+  .sujet-zone {
+    width: 50%;
+  }
+  
+  .message-text {
+    margin-left: 0px;
+  }
+  
+  .zonetexte {
+    margin-left: 80px;
+    width: 75%;
+  }
+  
+  em {
+    font-size: 14px;
+    margin: 30px 0px;
+    text-align: left;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .contact-gauche {
+    text-align: center;
+    margin: -100px 0px 0px;
+  }
+  
+
+  .fa-envelope,
+  .fa-phone {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  
+  .contact-droite {
+    max-width: 330px;
+    margin: 30px 0px 0px ;
+  }
+  
+  .prenom-text {
+    margin-left: 0px;
+    margin-right: 113px;
+  }
+  
+  .prenom-zone, .nom-zone {
+    width: 50%;
+  }
+  
+  .nom-text {
+    margin-left: 0px;
+    margin-right: 130px;
+  }
+  
+  .tel-text {
+    margin-left: 0px;
+    margin-right: 26px;
+  }
+  
+  .tel-zone {
+    width: 50%;
+  }
+  
+  .email-text {
+    margin-left: 0px;
+    margin-right: 67px;
+  }
+  
+  .email-zone {
+    width: 50%;
+  }
+  
+  .sujet-text {
+    margin-left: 0px;
+    margin-right: 137px;
+  }
+  
+  .sujet-zone {
+    width: 50%;
+  }
+  
+  .message-text {
+    margin-left: 0px;
+  }
+  
+  .zonetexte {
+    margin-left: 80px;
+    width: 75%;
+  }
+  
+  em {
+    font-size: 14px;
+    margin: 30px 0px;
+    text-align: left;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .contact-gauche {
+    text-align: center;
+    margin: -100px 0px 0px;
+  }
+  
+  .fa-envelope,
+  .fa-phone {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  
+  .contact-droite {
+    max-width: 330px;
+    margin: 30px -10px 0px ;
+  }
+  
+  .prenom-text {
+    margin-left: 0px;
+    margin-right: 113px;
+  }
+  
+  .prenom-zone, .nom-zone {
+    width: 50%;
+  }
+  
+  .nom-text {
+    margin-left: 0px;
+    margin-right: 130px;
+  }
+  
+  .tel-text {
+    margin-left: 0px;
+    margin-right: 26px;
+  }
+  
+  .tel-zone {
+    width: 50%;
+  }
+  
+  .email-text {
+    margin-left: 0px;
+    margin-right: 67px;
+  }
+  
+  .email-zone {
+    width: 50%;
+  }
+  
+  .sujet-text {
+    margin-left: 0px;
+    margin-right: 137px;
+  }
+  
+  .sujet-zone {
+    width: 50%;
+  }
+  
+  .message-text {
+    margin-left: 0px;
+  }
+  
+  .zonetexte {
+    margin-left: 80px;
+    width: 75%;
+  }
+  
+  em {
+    font-size: 14px;
+    margin: 30px 0px;
+    text-align: left;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .contact-gauche {
+    text-align: center;
+    margin: -100px 0px 0px;
+  }
+
+  .h2-contact {
+    font-size: 40px;
+  }
+  
+  .fa-envelope,
+  .fa-phone {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  
+  .contact-droite {
+    max-width: 330px;
+    margin: 30px -20px 0px ;
+  }
+  
+  .prenom-text {
+    margin-left: 0px;
+    margin-right: 113px;
+  }
+  
+  .prenom-zone, .nom-zone {
+    width: 50%;
+  }
+  
+  .nom-text {
+    margin-left: 0px;
+    margin-right: 130px;
+  }
+  
+  .tel-text {
+    margin-left: 0px;
+    margin-right: 26px;
+  }
+  
+  .tel-zone {
+    width: 50%;
+  }
+  
+  .email-text {
+    margin-left: 0px;
+    margin-right: 67px;
+  }
+  
+  .email-zone {
+    width: 50%;
+  }
+  
+  .sujet-text {
+    margin-left: 0px;
+    margin-right: 137px;
+  }
+  
+  .sujet-zone {
+    width: 50%;
+  }
+  
+  .message-text {
+    margin-left: 0px;
+  }
+  
+  .zonetexte {
+    margin-left: 80px;
+    width: 75%;
+  }
+  
+  em {
+    font-size: 14px;
+    margin: 30px 0px;
+    text-align: left;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .contact-gauche {
+    text-align: center;
+    margin: -100px 0px 0px;
+  }
+
+  .h2-contact {
+    font-size: 35px;
+  }
+  
+  .fa-envelope,
+  .fa-phone {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+  
+  .contact-droite {
+    max-width: 285px;
+    margin: 30px -20px 0px ;
   }
   
   .prenom-text {
@@ -1764,7 +2262,7 @@ em {
 
 
 
-/*---------------------------PersoMontre------------------------------*/
+/*---------------------------Shop------------------------------*/
 
 .h2-persoMontre {
   font-size: 45px;
@@ -1821,24 +2319,22 @@ em {
 .options-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: left;
   overflow-y: auto;
   width: 640px;
   height: 200px;
-  gap: 10px;
-  padding-right: 10px;
+  gap: 20px;
+  margin-left: 23px;
   margin-bottom: 100px;
 }
 
 
 .img-option {
   background-color: #f0f0f0;
-  border: 2.5px solid #bda208;
   cursor: pointer;
   padding: auto;
   border-radius: 8px;
-  height: auto;
-  width: 178px;
+  height: 160px;
+  width: 160px;
 }
 
 .options-list img:hover {
@@ -1878,13 +2374,14 @@ em {
   }
 
   .options-list {
-    width: 100%;
+    width: 500px;
     gap: 0px;
-    padding-right: 0px;
-    margin-bottom: 0px;
+    margin-left: 145px;
+    margin-bottom: 100px;
   }
   
   .img-option {
+    height: 115px;
     width: 115px;
   }
   
@@ -1926,11 +2423,12 @@ em {
   .options-list {
     width: 100%;
     gap: 0px;
-    padding-right: 0px;
-    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-bottom: 100px;
   }
   
   .img-option {
+    height: 115px;
     width: 115px;
   }
   
@@ -1973,11 +2471,12 @@ em {
     width: 100%;
     gap: 0px;
     padding-right: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 100px;
   }
   
   .img-option {
-    width: 102px;
+    height: 100px;
+    width: 100px;
   }
   
   .options-list img:hover {
@@ -2041,7 +2540,7 @@ em {
 
 .img-watch {
   position: absolute;
-  margin-top: 100px;
+  margin-top: 230px;
   margin-left: 500px;
   object-fit: cover;
 }
@@ -2095,7 +2594,7 @@ em {
 .panier-quantity {
   position: absolute;
   display: flex;
-  margin-top: 480px;
+  margin-top: 600px;
   margin-left: 500px;
 }
 
@@ -2258,8 +2757,8 @@ span {
   .img-watch-panier {
     width: 300px;
     height: 300px;
-    margin-left: 76.5%;
-    margin-top: 20%;
+    margin-left: 500px;
+    margin-top: -30px;
   }
   
   .component-panier {
@@ -2275,8 +2774,7 @@ span {
   }
   
   .panier-quantity {
-    margin-top: 52%;
-    margin-left: 45%;
+    margin-top: 570px;
   }
   
   .h3-sous-total {
@@ -2320,8 +2818,7 @@ span {
   .img-watch-panier {
     width: 250px;
     height: 250px;
-    margin-left: 84.5%;
-    margin-top: 30%;
+    margin-left: 430px;
   }
   
   .component-panier {
@@ -2337,8 +2834,8 @@ span {
   }
   
   .panier-quantity {
-    margin-top: 65%;
-    margin-left: 55%;
+    margin-top: 520px;
+    margin-left: 430px;
   }
 
   .btn-remove-watch {
@@ -2388,8 +2885,8 @@ span {
   .img-watch-panier {
     width: 200px;
     height: 200px;
-    margin-left: 57%;
-    margin-top: 75%;
+    margin-left: 240px;
+    margin-top: 245px;
   }
   
   .component-panier {
@@ -2405,8 +2902,8 @@ span {
   }
   
   .panier-quantity {
-    margin-top: 100%;
-    margin-left: 54%;
+    margin-top:515px;
+    margin-left: 240px;
   }
 
   .btn-remove-watch {
@@ -2515,6 +3012,7 @@ span {
   right: 25px;
   font-size: 36px;
   color: #000000;
+  cursor: pointer;
 }
 
 .btn-close-menu-account.loading-menu-btn {

@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <main className='main-content'>
-      <h3 className="text-home-aros">Aros</h3>
+      <h3 className="text-home-aros">AROS</h3>
       <h5 className="h5-home">Nous vous donnons la possibilité de personnaliser votre montre afin qu'elle vous ressemble le mieux</h5>
 
       <div>
