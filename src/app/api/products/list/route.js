@@ -1,5 +1,7 @@
-const products = [
- 
+// src/app/api/products/list/route.js
+
+export const GET = (req, res) => {
+  const products = [
     { id: 10, type: 'Bracelet', name: 'Bracelet argent mailles serrées', price: 18.15, imageUrl: '/img-bracelet/bracelet-seiko-argent-20mm.png' },
     { id: 11, type: 'Bracelet', name: 'Bracelet argent et or mailles serrées', price: 18.15, imageUrl: '/img-bracelet/bracelet-seiko-argent-or-20mm.png' },
     { id: 12, type: 'Bracelet', name: 'Bracelet argent et or', price: 18.15, imageUrl: '/img-bracelet/bracelet-argent-or-20mm.png' },
@@ -41,8 +43,6 @@ const products = [
     { id: 16, type: 'Bracelet', name: 'Bracelet argent 13mm', price: 18.15, imageUrl: '/img-bracelet/bracelet-argent-13mm.png' },
     { id: 25, type: 'Boitier', name: 'Boitier argent et rose, lunette entaillée 26mm', price: 27.25, imageUrl: '/img-boitier/boitier-seiko-argent-rose-26mm.png' },
   ];
-  
-  export default function handler(req, res) {
-    res.status(200).json(products);
-  }
-  
+
+  return res.status(200).json(products);
+};
