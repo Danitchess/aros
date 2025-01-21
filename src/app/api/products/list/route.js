@@ -1,5 +1,3 @@
-// src/app/api/products/list/route.js
-
 export const GET = (req, res) => {
   const products = [
     { id: 10, type: 'Bracelet', name: 'Bracelet argent mailles serrées', price: 18.15, imageUrl: '/img-bracelet/bracelet-seiko-argent-20mm.png' },

@@ -72,9 +72,9 @@ export default function Panier() {
   }, []);
 
 
-  const mouvementQuantity = cartState.reduce((total, item) => {
+  /*const mouvementQuantity = cartState.reduce((total, item) => {
     return total + item.quantity;
-  }, 0);
+  }, 0);*/
   
 
   /*const fixedProducts = {
@@ -118,13 +118,15 @@ export default function Panier() {
 
  
   const makePayement = async () => {
-    const stripe = await loadStripe("pk_test_51QYWwSI8jwbkhMMf4yGeeII7SvQMfG7Vs3Ivlp8DhusQahI3nDJJaIzMe1y2MtqMu1V64cF6kdq9itG66kICfPqW00274ZM7WX");
+    console.log(process.env.STRIPE_KEY)
+    const stripe = await loadStripe(process.env.STRIPE_KEY);
     if (!isLoggedIn) {
       router.push('/login-to-order');
       return;
     }
 
     const userEmail = localStorage.getItem('userEmail');
+    console.log(userEmail)
 
     const products = cartState.flatMap(item =>
       item.components.map(component => ({

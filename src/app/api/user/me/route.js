@@ -1,6 +1,6 @@
-"use server"
+"use server";
 import jwt from 'jsonwebtoken';
-import db from "../../../../lib/db";  
+import pool from "../../../../lib/db";  
 const secretKey = process.env.SECRET_KEY;
 
 export async function GET(req) {
@@ -13,10 +13,13 @@ export async function GET(req) {
   }
 
   try {
-
     const decoded = jwt.verify(token, secretKey);
 
-    const [results] = await db.execute('SELECT id, firstname, lastname, email FROM users WHERE id = ?', [decoded.id]);
+    // Utilisation de `pool.query` avec PostgreSQL
+    const { rows: results } = await pool.query(
+      'SELECT id, firstname, lastname, email FROM users WHERE id = $1',
+      [decoded.id]
+    );
 
     if (results.length === 0) {
       return new Response(

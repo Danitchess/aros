@@ -1,19 +1,21 @@
 "use server";
 
 import Stripe from "stripe";
-import db from "../../../../lib/db"; 
+import pool from "../../../../lib/db"; 
 import { NextResponse } from "next/server";
 
 const stripeSecretKey = process.env.STRIPE_SECRET;
 if (!stripeSecretKey) {
-  throw new Error('Stripe Secret Key is missing');
+  throw new Error("Stripe Secret Key is missing");
 }
 
 const stripe = new Stripe(stripeSecretKey);
-console.log(stripeSecretKey)
 
 export async function POST(req) {
   const { allProducts, totalAmount, userEmail } = await req.json();
+  console.log("Données reçues par l'API :", { allProducts, totalAmount, userEmail });
+
+  
 
   if (!allProducts || !totalAmount || allProducts.length === 0) {
     return NextResponse.json(
@@ -21,21 +23,20 @@ export async function POST(req) {
       { status: 400 }
     );
   }
+  
 
   try {
-    // Préparation des line_items pour Stripe
     const lineItems = allProducts.map((product) => ({
       price_data: {
         currency: "eur",
         product_data: {
           name: product.name,
         },
-        unit_amount: Math.round(product.unit_amount.value * 100), // Convertir en centimes
+        unit_amount: Math.round(product.unit_amount.value * 100), 
       },
       quantity: product.quantity,
     }));
 
-    // Création de la session Stripe
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "bancontact", "paypal"],
       line_items: lineItems,
@@ -48,49 +49,55 @@ export async function POST(req) {
           shipping_rate_data: {
             type: "fixed_amount",
             fixed_amount: {
-              amount: 500, // 5.00 EUR
+              amount: 600, 
               currency: "eur",
             },
             display_name: "Livraison bpost",
             delivery_estimate: {
-              minimum: { unit: "business_day", value: 2 },
-              maximum: { unit: "business_day", value: 5 },
+              minimum: { unit: "week", value: 4 },
+              maximum: { unit: "week", value: 5 },
             },
           },
         },
       ],
-      success_url: encodeURI("http://localhost:3000/order-send"),
-      cancel_url: encodeURI("http://localhost:3000/cart"),
+      success_url: "https://aros-84lpvdm2v-danitchess-projects.vercel.app/order-send",
+      cancel_url: "https://aros-84lpvdm2v-danitchess-projects.vercel.app/cart",
       phone_number_collection: {
         enabled: true,
       },
     });
 
-    // Enregistrement de la commande dans la base de données
-    const connection = await db.getConnection();
+    const client = await pool.connect(); // Obtenir un client depuis le pool
+
     try {
-      await connection.beginTransaction();
+      await client.query('BEGIN'); // Démarrer la transaction
 
       // Insertion de la commande
-      const [orderResult] = await connection.execute(
-        "INSERT INTO orders (userEmail, date, status) VALUES (?, NOW(), ?)",
+      const insertOrderResult = await client.query(
+        "INSERT INTO orders (userEmail, date, status) VALUES ($1, NOW(), $2) RETURNING id",
         [userEmail, "payée"]
       );
-      const orderId = orderResult.insertId;
+      const orderId = insertOrderResult.rows[0].id;
 
       // Insertion des détails de la commande
-      const orderDetails = allProducts.map((product) => [
+      const orderDetailsValues = allProducts.flatMap((product) => [
         orderId,
         product.id,
         product.quantity,
       ]);
-      await connection.query(
-        "INSERT INTO order_details (orderId, productId, quantity) VALUES ?",
-        [orderDetails]
-      );
 
-      // Commit de la transaction
-      await connection.commit();
+      const orderDetailsQuery = `
+        INSERT INTO order_details (orderId, productId, quantity)
+        VALUES ${allProducts
+          .map(
+            (_, index) => `($${index * 3 + 1}, $${index * 3 + 2}, $${index * 3 + 3})`
+          )
+          .join(", ")}
+      `;
+
+      await client.query(orderDetailsQuery, orderDetailsValues);
+
+      await client.query('COMMIT');
 
       // Retour du succès avec sessionId pour Stripe
       return NextResponse.json(
@@ -102,13 +109,13 @@ export async function POST(req) {
         },
         { status: 201 }
       );
-    } catch (dbError) {
+    } catch (poolError) {
       // Rollback si une erreur se produit
-      await connection.rollback();
-      console.error("Erreur lors de l'enregistrement de la commande :", dbError);
+      await client.query('ROLLBACK');
+      console.error("Erreur lors de l'enregistrement de la commande :", poolError);
       throw new Error("Erreur interne lors de l'enregistrement de la commande.");
     } finally {
-      connection.release();
+      client.release(); // Libérer le client
     }
   } catch (error) {
     console.error("Erreur Stripe ou Base de données :", error);

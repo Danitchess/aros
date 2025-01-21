@@ -1,6 +1,7 @@
-import mysql from 'mysql2/promise';
+/*import mysql from 'mysql2/promise';
+import { neon } from "@neondatabase/serverless";
 
-const db = mysql.createPool({
+/*const db = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -15,4 +16,19 @@ db.getConnection((err) => {
   }
 });
 
-export default db;
+const db = async() => {
+  const sql = neon(process.env.DATABASE_URL);
+  return sql
+}
+
+export default db;*/
+
+import { Pool } from 'pg';
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true, 
+});
+
+export default pool;
+

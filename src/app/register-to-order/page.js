@@ -98,7 +98,7 @@ export default function Register () {
                 <div>
                     <p>
                         Vous avez déjà un compte ?{' '}
-                        <Link className="nav-register" to="/login-to-order">
+                        <Link className="nav-register" href="/login-to-order">
                             {' '}
                             Se connecter
                         </Link>

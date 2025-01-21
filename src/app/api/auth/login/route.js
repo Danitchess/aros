@@ -1,7 +1,7 @@
 "use server";
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import db from "../../../../lib/db"; 
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import pool from "../../../../lib/db"; 
 
 const secretKey = process.env.SECRET_KEY;
 
@@ -12,16 +12,19 @@ export async function POST(req) {
 
     if (!email || !password) {
       return new Response(
-        JSON.stringify({ success: false, message: 'Tous les champs sont requis' }),
+        JSON.stringify({ success: false, message: "Tous les champs sont requis" }),
         { status: 400 }
       );
     }
 
-    const [result] = await db.execute('SELECT * FROM users WHERE email = ?', [email]);
+    const { rows: result } = await pool.query(
+      "SELECT * FROM users WHERE email = $1",
+      [email]
+    );
 
     if (result.length === 0) {
       return new Response(
-        JSON.stringify({ success: false, message: 'Utilisateur non trouvé' }),
+        JSON.stringify({ success: false, message: "Utilisateur non trouvé" }),
         { status: 401 }
       );
     }
@@ -32,27 +35,26 @@ export async function POST(req) {
 
     if (!passwordMatch) {
       return new Response(
-        JSON.stringify({ success: false, message: 'Mot de passe incorrect' }),
+        JSON.stringify({ success: false, message: "Mot de passe incorrect" }),
         { status: 401 }
       );
     }
 
-    const token = jwt.sign({ id: user.id, email }, secretKey, { expiresIn: '2h' });
+    const token = jwt.sign({ id: user.id, email }, secretKey, { expiresIn: "2h" });
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: 'Connexion réussie',
+        message: "Connexion réussie",
         user: { id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email },
         token,
       }),
       { status: 200 }
     );
-
   } catch (error) {
-    console.error('Erreur lors de la connexion :', error);
+    console.error("Erreur lors de la connexion :", error);
     return new Response(
-      JSON.stringify({ success: false, message: 'Erreur interne du serveur' }),
+      JSON.stringify({ success: false, message: "Erreur interne du serveur" }),
       { status: 500 }
     );
   }
