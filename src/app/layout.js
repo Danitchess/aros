@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from 'next/link'
+import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { CartProvider } from './context/CartContext';
@@ -17,26 +18,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-export const metadata = {
-  title: "Aros Watch - Personnalisation de montres",
-  description: "Découvrez la boutique Aros Watch et personnalisez votre montre unique.",
-  keywords: "Aros, Aros Watch, montre personnalisée, montre personnalisable, boutique en ligne, design de montres",
-  openGraph: {
-    title: "Aros Watch",
-    description: "Personnalisation de montres",
-    url: "https://www.aroswatch.be",
-    images: [
-      {
-        url: "/public/aros.JPG",
-        width: 1200,
-        height: 630,
-        alt: "Aros Watch - Personnalisez votre montre",
-      },
-    ],
-  },
-};
-
 
 export default function RootLayout({
   children,
@@ -101,7 +82,17 @@ export default function RootLayout({
 
   const totalItemsInCart = cart.length;
   return (
+
     <html lang="fr">
+<Head>
+        <title>Aros Watch - Personnalisation de montres</title>
+        <meta name="description" content="Découvrez la boutique Aros Watch et personnalisez votre montre unique." />
+        <meta name="keywords" content="Aros, Aros Watch, montre personnalisée, montre personnalisable, boutique en ligne, design de montres" />
+        <meta property="og:title" content="Aros Watch" />
+        <meta property="og:description" content="Personnalisation de montres" />
+        <meta property="og:url" content="https://www.aroswatch.be" />
+        <meta property="og:image" content="/public/aros.JPG" />
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
