@@ -118,8 +118,8 @@ export default function Panier() {
 
  
   const makePayement = async () => {
-    console.log(process.env.STRIPE_KEY)
-    const stripe = await loadStripe(process.env.STRIPE_KEY);
+    console.log(process.env.NEXT_PUBLIC_STRIPE_KEY)
+    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
     if (!isLoggedIn) {
       router.push('/login-to-order');
       return;

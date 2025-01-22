@@ -8,7 +8,7 @@ export default function Home() {
 
       <div>
         <h4 className="h4-home-perso">Personnalisez la dès maintenant</h4>
-        <Link href="/boutique">
+        <Link href="/shop">
 
           <button className="btn-home-perso">
             <span className="text">Personnaliser</span>

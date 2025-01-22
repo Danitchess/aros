@@ -38,7 +38,7 @@ export async function POST(req) {
     }));
 
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card", "bancontact", "paypal"],
+      payment_method_types: ["card", "bancontact"],
       line_items: lineItems,
       mode: "payment",
       shipping_address_collection: {
@@ -60,8 +60,8 @@ export async function POST(req) {
           },
         },
       ],
-      success_url: "https://aros-84lpvdm2v-danitchess-projects.vercel.app/order-send",
-      cancel_url: "https://aros-84lpvdm2v-danitchess-projects.vercel.app/cart",
+      success_url: "https://aroswatch.be/commande-pass%C3%A9e",
+      cancel_url: "https://aroswatch.be/panier",
       phone_number_collection: {
         enabled: true,
       },
