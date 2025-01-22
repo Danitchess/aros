@@ -60,14 +60,14 @@ export async function POST(req) {
           },
         },
       ],
-      success_url: "https://aroswatch.be/commande-pass%C3%A9e",
-      cancel_url: "https://aroswatch.be/panier",
+      success_url: "https://aroswatch.be/order-send",
+      cancel_url: "https://aroswatch.be/cart",
       phone_number_collection: {
         enabled: true,
       },
     });
 
-    const client = await pool.connect(); // Obtenir un client depuis le pool
+    const client = await pool.connect(); 
 
     try {
       await client.query('BEGIN'); // Démarrer la transaction
