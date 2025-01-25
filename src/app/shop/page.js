@@ -13,9 +13,9 @@ export default function PersoMontre() {
 
 
     const [mainImages, setMainImages] = useState([
-        { id: 1, src: 'https://www.watchmodcustom.com/img/scenes/ndkcf/737.jpg' },
-        { id: 2, src: 'https://www.watchmodcustom.com/img/scenes/ndkcf/755.jpg' },
-        { id: 3, src: 'https://www.watchmodcustom.com/img/scenes/ndkcf/725.jpg' },
+        { id: 1, src: '/img-bracelet/bracelet-seiko-argent-20mm.png' },
+        { id: 2, src: '/img-boitier/boitier-seiko-argent-39mm.1.png' },
+        { id: 3, src: '/img-cadrans/cadran-blanc.png' },
         { id: 4, src: 'vide.png' },
         { id: 5, src: 'vide.png' },
         { id: 6, src: 'vide.png' },
