@@ -42,7 +42,7 @@ export async function POST(req) {
       line_items: lineItems,
       mode: "payment",
       shipping_address_collection: {
-        allowed_countries: ["FR", "BE", "DE", "GB"],
+        allowed_countries: ["FR", "BE", "DE", "NL"],
       },
       shipping_options: [
         {

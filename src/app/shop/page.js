@@ -2,12 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 
-export default function PersoMontre () {
+export default function PersoMontre() {
     const { setCart } = useCart();
     const [currentCategory, setCurrentCategory] = useState(0);
     const [selectedOptions, setSelectedOptions] = useState({});
     const [selectedThumbnails, setSelectedThumbnails] = useState({});
     const [cartState, setCartState] = useState([]);
+    const [showMovementCheckbox, setShowMovementCheckbox] = useState(false);
+    const [movementSelected, setMovementSelected] = useState(false);
+
 
     const [mainImages, setMainImages] = useState([
         { id: 1, src: 'https://www.watchmodcustom.com/img/scenes/ndkcf/737.jpg' },
@@ -19,64 +22,102 @@ export default function PersoMontre () {
         { id: 7, src: 'vide.png' },
         { id: 8, src: 'vide.png' },
         { id: 9, src: 'vide.png' },
+
     ]);
 
     const products = [
 
         /* ---------------------Hommes-------------------------*/
 
-        { id: 10, type: 'Bracelet', name: 'Bracelet argent mailles serrées', price: 16, imageUrl: '/img-bracelet/bracelet-seiko-argent-20mm.png' },
-        { id: 11, type: 'Bracelet', name: 'Bracelet argent et or mailles serrées', price: 27, imageUrl: '/img-bracelet/bracelet-seiko-argent-or-20mm.png' },
-        { id: 12, type: 'Bracelet', name: 'Bracelet argent et or', price: 27, imageUrl: '/img-bracelet/bracelet-argent-or-20mm.png' },
-        { id: 12.1, type: 'Bracelet', name: 'Bracelet argent et or', price: 27, imageUrl: '/img-bracelet/bracelet-argent-or-20mm-12.1.png' },
-        { id: 13, type: 'Bracelet', name: 'Bracelet argent et rose mailles serrées', price: 27, imageUrl: '/img-bracelet/bracelet-seiko-argent-rose-20mm.png' },
-        { id: 14, type: 'Bracelet', name: 'Bracelet argent', price: 16, imageUrl: '/img-bracelet/bracelet-argent-20mm.png' },
-        { id: 14.1, type: 'Bracelet', name: 'Bracelet argent', price: 16, imageUrl: '/img-bracelet/bracelet-argent-20mm-14.1.png' },
+        { id: 10, type: 'Bracelet', name: 'Bracelet argent mailles serrées', price: 20, imageUrl: '/img-bracelet/bracelet-seiko-argent-20mm.png' },
+        { id: 11, type: 'Bracelet', name: 'Bracelet argent et or mailles serrées', price: 25, imageUrl: '/img-bracelet/bracelet-seiko-argent-or-20mm.png' },
+        { id: 12, type: 'Bracelet', name: 'Bracelet argent et or', price: 25, imageUrl: '/img-bracelet/bracelet-argent-or-20mm.png' },
+        { id: 12.1, type: 'Bracelet', name: 'Bracelet argent et or', price: 25, imageUrl: '/img-bracelet/bracelet-argent-or-20mm-12.1.png' },
+        { id: 13, type: 'Bracelet', name: 'Bracelet argent et rose mailles serrées', price: 25, imageUrl: '/img-bracelet/bracelet-seiko-argent-rose-20mm.png' },
+        { id: 14, type: 'Bracelet', name: 'Bracelet argent', price: 20, imageUrl: '/img-bracelet/bracelet-argent-20mm.png' },
+        { id: 14.1, type: 'Bracelet', name: 'Bracelet argent', price: 20, imageUrl: '/img-bracelet/bracelet-argent-20mm-14.1.png' },
 
         { id: 20, type: 'Boitier', name: 'Boitier argent, lunette entaillée', price: 30, imageUrl: '/img-boitier/boitier-seiko-argent-39mm.1.png' },
-        { id: 21, type: 'Boitier', name: 'Boitier argent avec lunette', price: 30, imageUrl: '/img-boitier/boitier-argent-bezel.png' },
-        { id: 22, type: 'Boitier', name: 'Boitier argent et or, lunette entaillée', price: 45, imageUrl: '/img-boitier/boitier-seiko-argent-or-39mm.png' },
-        { id: 23, type: 'Boitier', name: 'Boitier argent et or, lunette lisse', price: 45, imageUrl: '/img-boitier/boitier-lisse-argent-or-39mm.png' },
-        { id: 24, type: 'Boitier', name: 'Boitier argent et rose, lunette entaillée 39mm', price: 45, imageUrl: '/img-boitier/boitier-seiko-argent-rose-39mm.png' },
+        { id: 21, type: 'Boitier', name: 'Boitier argent avec lunette 40mm', price: 35, imageUrl: '/img-boitier/boitier-argent-bezel.png' },
+        { id: 22, type: 'Boitier', name: 'Boitier argent et or, lunette entaillée ', price: 40, imageUrl: '/img-boitier/boitier-seiko-argent-or-39mm.png' },
+        { id: 23, type: 'Boitier', name: 'Boitier argent et or, lunette lisse ', price: 40, imageUrl: '/img-boitier/boitier-lisse-argent-or-39mm.png' },
+        { id: 24, type: 'Boitier', name: 'Boitier argent et rose, lunette entaillée ', price: 40, imageUrl: '/img-boitier/boitier-seiko-argent-rose-39mm.png' },
 
-        { id: 30, type: 'Cadran', name: 'Cadran noir', price: 23, imageUrl: '/img-cadrans/cadran-noir.png' },
-        { id: 31, type: 'Cadran', name: 'Cadran blanc', price: 23, imageUrl: '/img-cadrans/cadran-blanc.png' },
-        { id: 32, type: 'Cadran', name: 'Cadran bleu', price: 23, imageUrl: '/img-cadrans/cadran-bleu.png' },
-        { id: 33, type: 'Cadran', name: 'Cadran nautilus vert', price: 23, imageUrl: '/img-cadrans/cadran-nautilus-vert.png' },
-        { id: 34, type: 'Cadran', name: 'Cadran minutetime vert', price: 23, imageUrl: '/img-cadrans/cadran-minutetime-vert.png' },
+        { id: 30, type: 'Cadran', name: 'Cadran noir', price: 25, imageUrl: '/img-cadrans/cadran-noir.png' },
+        { id: 31, type: 'Cadran', name: 'Cadran blanc', price: 25, imageUrl: '/img-cadrans/cadran-blanc.png' },
+        { id: 32, type: 'Cadran', name: 'Cadran bleu', price: 25, imageUrl: '/img-cadrans/cadran-bleu.png' },
+        { id: 33, type: 'Cadran', name: 'Cadran nautilus vert', price: 25, imageUrl: '/img-cadrans/cadran-nautilus-vert.png' },
+        { id: 34, type: 'Cadran', name: 'Cadran nautilus blanc', price: 25, imageUrl: '/img-cadrans/cadran-nautilus-blanc.png' },
+        { id: 35, type: 'Cadran', name: 'Cadran nautilus bleu', price: 25, imageUrl: '/img-cadrans/cadran-nautilus-bleu.png' },
+        { id: 36, type: 'Cadran', name: 'Cadran nautilus dégradé noir bleu', price: 25, imageUrl: '/img-cadrans/cadran-nautilus-bleu-noir.png' },
+        { id: 37, type: 'Cadran', name: 'Cadran nautilus brun', price: 25, imageUrl: '/img-cadrans/cadran-nautilus-brun.png' },
+        { id: 38, type: 'Cadran', name: 'Cadran nautilus noir', price: 25, imageUrl: '/img-cadrans/cadran-nautilus-noir.png' },
+        { id: 39, type: 'Cadran', name: 'Cadran nautilus turquoise', price: 25, imageUrl: '/img-cadrans/cadran-nautilus-turquoise.png' },
+        { id: 301, type: 'Cadran', name: 'Cadran noir chiffres arabes', price: 25, imageUrl: '/img-cadrans/cadran-arabic-noir.png' },
+        { id: 311, type: 'Cadran', name: 'Cadran turquoise chiffres arabes', price: 25, imageUrl: '/img-cadrans/cadran-arabic-turquoise.png' },
+        { id: 321, type: 'Cadran', name: 'Cadran rose chiffres arabes', price: 25, imageUrl: '/img-cadrans/cadran-arabic-rose.png' },
+        { id: 331, type: 'Cadran', name: 'Cadran rose clair chiffres arabes', price: 25, imageUrl: '/img-cadrans/cadran-arabic-rose-clair.png' },
+        { id: 341, type: 'Cadran', name: 'Cadran vert chiffres arabes', price: 25, imageUrl: '/img-cadrans/cadran-arabic-vert.png' },
+        { id: 351, type: 'Cadran', name: 'Cadran orange', price: 25, imageUrl: '/img-cadrans/cadran-orange.png' },
+        { id: 361, type: 'Cadran', name: 'Cadran rose pâle mat', price: 25, imageUrl: '/img-cadrans/cadran-rose-pale.png' },
+        { id: 371, type: 'Cadran', name: 'Cadran rouge mat', price: 25, imageUrl: '/img-cadrans/cadran-rouge.png' },
+        { id: 381, type: 'Cadran', name: 'Cadran turquoise mat', price: 25, imageUrl: '/img-cadrans/cadran-turquoise.png' },
 
         { id: 40, type: 'Couleur Logo', name: 'Logo noir', price: 0, imageUrl: '/img-logos/logo-noir.png' },
         { id: 41, type: 'Couleur Logo', name: 'Logo blanc', price: 0, imageUrl: '/img-logos/logo-blanc.png' },
         { id: 42, type: 'Couleur Logo', name: 'Logo doré', price: 0, imageUrl: '/img-logos/logo-or.png' },
 
-        { id: 50, type: 'Aiguille', name: 'Aiguilles argent flèchée', price: 4, imageUrl: '/img-aiguilles/aiguilles-argent-fleche.png' },
-        { id: 51, type: 'Aiguille', name: 'Aiguilles argent rectangulaire', price: 4, imageUrl: '/img-aiguilles/aiguilles-argent-rectangle.png' },
-        { id: 52, type: 'Aiguille', name: 'Aiguilles or bouts ronds', price: 4, imageUrl: '/img-aiguilles/aiguilles-rond-or.png' },
+        { id: 50, type: 'Aiguille', name: 'Aiguilles argent rectangulaires', price: 6, imageUrl: '/img-aiguilles/aiguilles-argent-rectangle.png' },
+        { id: 51, type: 'Aiguille', name: 'Aiguilles or rectangulaires', price: 6, imageUrl: '/img-aiguilles/aiguilles-or-rectangle.png' },
+        { id: 511, type: 'Aiguille', name: 'Aiguilles or rose rectangulaires', price: 6, imageUrl: '/img-aiguilles/aiguilles-or-rose-rectangle.png' },
+        { id: 52, type: 'Aiguille', name: 'Aiguilles or bout rond', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-or.png' },
+        { id: 53, type: 'Aiguille', name: 'Aiguilles argent bout rond', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-argent.png' },
+        { id: 54, type: 'Aiguille', name: 'Aiguilles noires et blanches bout rond', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-noir-blanc.png' },
+        { id: 55, type: 'Aiguille', name: 'Aiguilles rondes argent', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-long-argent.png' },
+        { id: 56, type: 'Aiguille', name: 'Aiguilles rondes or rose', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-long-or-rose.png' },
+        { id: 57, type: 'Aiguille', name: 'Aiguilles rondes or', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-long-or.png' },
+        { id: 58, type: 'Aiguille', name: 'Aiguilles rondes noires', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-long-noir.png' },
+        { id: 59, type: 'Aiguille', name: 'Aiguilles noires bout carré', price: 6, imageUrl: '/img-aiguilles/aiguilles-carre-noir.png' },
+        { id: 501, type: 'Aiguille', name: 'Aiguilles argent bout carré', price: 6, imageUrl: '/img-aiguilles/aiguilles-carre-argent.png' },
+        { id: 521, type: 'Aiguille', name: 'Aiguilles noires bout carré', price: 6, imageUrl: '/img-aiguilles/aiguilles-carre-noir.png' },
+        { id: 531, type: 'Aiguille', name: 'Aiguilles noires bout carré', price: 6, imageUrl: '/img-aiguilles/aiguilles-carre-noir.png' },
+        { id: 541, type: 'Aiguille', name: 'Aiguilles noires bout carré', price: 6, imageUrl: '/img-aiguilles/aiguilles-carre-noir.png' },
 
-        { id: 60, type: 'Trotteuse', name: 'Trotteuse argent', price: 2, imageUrl: '/img-trotteuses/trotteuse-argent.png' },
-        { id: 61, type: 'Trotteuse', name: 'Trotteuse argent très fine', price: 2, imageUrl: '/img-trotteuses/trotteuse-argent-fine.png' },
-        { id: 62, type: 'Trotteuse', name: 'Trotteuse or très fine', price: 2, imageUrl: '/img-trotteuses/trotteuse-rond-or.png' },
 
-        { id: 70, type: 'Couleur Date', name: 'Mouvement NH35 blanc', price: 58, imageUrl: 'date-blanc.png' },
-        { id: 71, type: 'Couleur Date', name: 'Mouvement NH35 noir', price: 58, imageUrl: 'date-noir.png' },
+        { id: 60, type: 'Trotteuse', name: 'Trotteuse argent', price: 3, imageUrl: '/img-trotteuses/trotteuse-argent.png' },
+        { id: 61, type: 'Trotteuse', name: 'Trotteuse argent très fine', price: 3, imageUrl: '/img-trotteuses/trotteuse-argent-fine.png' },
+        { id: 62, type: 'Trotteuse', name: 'Trotteuse or très fine avec rond', price: 3, imageUrl: '/img-trotteuses/trotteuse-rond-or.png' },
+        { id: 63, type: 'Trotteuse', name: 'Trotteuse argent très fine avec rond', price: 3, imageUrl: '/img-trotteuses/trotteuse-rond-argent.png' },
+        { id: 64, type: 'Trotteuse', name: 'Trotteuse noire très fine avec rond', price: 3, imageUrl: '/img-trotteuses/trotteuse-rond-noir.png' },
+        { id: 65, type: 'Trotteuse', name: 'Trotteuse or très fine', price: 3, imageUrl: '/img-trotteuses/trotteuse-rond-or.png' },
+        { id: 66, type: 'Trotteuse', name: 'Trotteuse or très fine', price: 3, imageUrl: '/img-trotteuses/trotteuse-rond-or.png' },
+        { id: 67, type: 'Trotteuse', name: 'Trotteuse éclair argent', price: 3, imageUrl: '/img-trotteuses/trotteuse-eclair-argent.png' },
+        { id: 68, type: 'Trotteuse', name: 'Trotteuse éclair or rose', price: 3, imageUrl: '/img-trotteuses/trotteuse-eclair-or-rose.png' },
+        { id: 69, type: 'Trotteuse', name: 'Trotteuse éclair or', price: 3, imageUrl: '/img-trotteuses/trotteuse-eclair-or.png' },
+
+        { id: 70, type: 'Couleur Date', name: 'Mouvement NH35 blanc', price: 60, imageUrl: 'date-blanc.png' },
+        { id: 71, type: 'Couleur Date', name: 'Mouvement NH35 noir', price: 60, imageUrl: 'date-noir.png' },
+        { id: 72, type: 'Mouvement', name: 'Mouvement NH35', price: 60, imageUrl: 'vide.png' },
 
         { id: 80, type: 'Loupe', name: 'Sans loupe', price: 0, imageUrl: 'vide.png' },
         { id: 81, type: 'Loupe', name: 'Loupe', price: 0, imageUrl: 'loupe.png' },
 
-        { id: 90, type: 'Lunette', name: 'Lunette blanche chiffres en relief', price: 6, imageUrl: '/img-lunettes/lunette-blanc-relief.png'},
-        { id: 91, type: 'Lunette', name: 'Lunette noire chiffres blancs', price: 6, imageUrl: '/img-lunettes/lunette-noir-blanc.png'},
-        { id: 92, type: 'Lunette', name: 'Lunette rouge et bleue', price: 6, imageUrl: '/img-lunettes/lunette-rouge-bleu.png'},
-        { id: 93, type: 'Lunette', name: 'Lunette rouge et noire', price: 6, imageUrl: '/img-lunettes/lunette-rouge-noir.png'},
-        { id: 94, type: 'Lunette', name: 'Lunette bleue et noire', price: 6, imageUrl: '/img-lunettes/lunette-bleu-noir.png'},
-        { id: 95, type: 'Lunette', name: 'Lunette verte et noire', price: 6, imageUrl: '/img-lunettes/lunette-vert-noir.png'},
-        { id: 96, type: 'Lunette', name: 'Lunette noire chiffres noirs', price: 6, imageUrl: '/img-lunettes/lunette-noir.png'},
+        { id: 90, type: 'Lunette', name: 'Lunette blanche chiffres en relief', price: 6, imageUrl: '/img-lunettes/lunette-blanc-relief.png' },
+        { id: 91, type: 'Lunette', name: 'Lunette noire chiffres blancs', price: 6, imageUrl: '/img-lunettes/lunette-noir-blanc.png' },
+        { id: 92, type: 'Lunette', name: 'Lunette rouge et bleue', price: 6, imageUrl: '/img-lunettes/lunette-rouge-bleu.png' },
+        { id: 93, type: 'Lunette', name: 'Lunette rouge et noire', price: 6, imageUrl: '/img-lunettes/lunette-rouge-noir.png' },
+        { id: 94, type: 'Lunette', name: 'Lunette bleue et noire', price: 6, imageUrl: '/img-lunettes/lunette-bleu-noir.png' },
+        { id: 95, type: 'Lunette', name: 'Lunette verte et noire', price: 6, imageUrl: '/img-lunettes/lunette-vert-noir.png' },
+        { id: 96, type: 'Lunette', name: 'Lunette noire chiffres noirs', price: 6, imageUrl: '/img-lunettes/lunette-noir.png' },
+
+        { id: 1001, type: 'Taille du boitier', name: '26mm', price: 0, imageUrl: 'vide.png' },
+        { id: 1002, type: 'Taille du boitier', name: '36mm', price: 0, imageUrl: 'vide.png' },
+        { id: 1003, type: 'Taille du boitier', name: '39mm', price: 0, imageUrl: 'vide.png' },
 
         /* ---------------------Femmes-------------------------*/
 
-        { id: 15, type: 'Bracelet', name: 'Bracelet argent et rose 13mm', price: 18.15, imageUrl: '/img-bracelet/bracelet-seiko-argent-rose-13mm.png' },
-        { id: 16, type: 'Bracelet', name: 'Bracelet argent 13mm', price: 18.15, imageUrl: '/img-bracelet/bracelet-argent-13mm.png' },
-
-        { id: 25, type: 'Boitier', name: 'Boitier argent et rose, lunette entaillée 26mm', price: 27.25, imageUrl: '/img-boitier/boitier-seiko-argent-rose-26mm.png' },
+        { id: 15, type: 'Bracelet', name: 'Bracelet argent et rose 13mm', price: 35, imageUrl: '/img-bracelet/bracelet-seiko-argent-rose-13mm.png' },
+        { id: 16, type: 'Bracelet', name: 'Bracelet argent 13mm', price: 35, imageUrl: '/img-bracelet/bracelet-argent-13mm.png' },
 
     ];
 
@@ -88,8 +129,14 @@ export default function PersoMontre () {
                 { id: 22, src: "/img-boitier/boitier-seiko-argent-or-39mm.2.png" },
                 { id: 23, src: "/img-boitier/boitier-lisse-argent-or-39mm.2.png" },
                 { id: 24, src: "/img-boitier/boitier-seiko-argent-rose-39mm.2.png" },
+            ]
+        },
 
-                { id: 25, src: "/img-boitier/boitier-seiko-argent-rose-26mm.2.png" },
+        {
+            name: 'Taille du boitier', options: [
+                { id: 1001, src: "26mm.png" },
+                { id: 1002, src: "36mm.png" },
+                { id: 1003, src: "39mm.png" },
             ]
         },
 
@@ -127,7 +174,22 @@ export default function PersoMontre () {
                 { id: 31, src: "/img-cadrans/cadran-blanc.2.png" },
                 { id: 32, src: "/img-cadrans/cadran-bleu.2.png" },
                 { id: 33, src: "/img-cadrans/cadran-nautilus-vert.2.png" },
-                { id: 34, src: "/img-cadrans/cadran-minutetime-vert.2.png" },
+                { id: 34, src: "/img-cadrans/cadran-nautilus-blanc.2.png" },
+                { id: 35, src: "/img-cadrans/cadran-nautilus-bleu.2.png" },
+                { id: 36, src: "/img-cadrans/cadran-nautilus-bleu-noir.2.png" },
+                { id: 37, src: "/img-cadrans/cadran-nautilus-brun.2.png" },
+                { id: 38, src: "/img-cadrans/cadran-nautilus-noir.2.png" },
+                { id: 39, src: "/img-cadrans/cadran-nautilus-turquoise.2.png" },
+                { id: 301, src: "/img-cadrans/cadran-arabic-noir.2.png" },
+                { id: 311, src: "/img-cadrans/cadran-arabic-turquoise.2.png" },
+                { id: 321, src: "/img-cadrans/cadran-arabic-rose.2.png" },
+                { id: 331, src: "/img-cadrans/cadran-arabic-rose-clair.2.png" },
+                { id: 341, src: "/img-cadrans/cadran-arabic-vert.2.png" },
+                { id: 351, src: "/img-cadrans/cadran-orange.2.png" },
+                { id: 361, src: "/img-cadrans/cadran-rose-pale.2.png" },
+                { id: 371, src: "/img-cadrans/cadran-rouge.2.png" },
+                { id: 381, src: "/img-cadrans/cadran-turquoise.2.png" },
+
             ]
         },
 
@@ -141,9 +203,18 @@ export default function PersoMontre () {
 
         {
             name: 'Aiguilles', options: [
-                { id: 50, src: "/img-aiguilles/aiguilles-argent-fleche.2.png" },
-                { id: 51, src: "/img-aiguilles/aiguilles-argent-rectangle.2.png" },
+                { id: 50, src: "/img-aiguilles/aiguilles-argent-rectangle.2.png" },
+                { id: 51, src: "/img-aiguilles/aiguilles-or-rectangle.2.png" },
+                { id: 511, src: '/img-aiguilles/aiguilles-or-rose-rectangle.2.png' },
                 { id: 52, src: "/img-aiguilles/aiguilles-rond-or.2.png" },
+                { id: 53, src: "/img-aiguilles/aiguilles-rond-argent.2.png" },
+                { id: 54, src: "/img-aiguilles/aiguilles-rond-noir-blanc.2.png" },
+                { id: 55, src: '/img-aiguilles/aiguilles-rond-long-argent.2.png' },
+                { id: 56, src: '/img-aiguilles/aiguilles-rond-long-or-rose.2.png' },
+                { id: 57, src: '/img-aiguilles/aiguilles-rond-long-or.2.png' },
+                { id: 58, src: '/img-aiguilles/aiguilles-rond-long-noir.2.png' },
+                { id: 59, src: '/img-aiguilles/aiguilles-carre-noir.2.png' },
+                { id: 501, src: '/img-aiguilles/aiguilles-carre-argent.2.png' },
 
             ]
         },
@@ -152,6 +223,13 @@ export default function PersoMontre () {
                 { id: 60, src: "/img-trotteuses/trotteuse-argent.2.png" },
                 { id: 61, src: "/img-trotteuses/trotteuse-argent-fine.2.png" },
                 { id: 62, src: "/img-trotteuses/trotteuse-rond-or.2.png" },
+                { id: 63, src: "/img-trotteuses/trotteuse-rond-argent.2.png" },
+                { id: 64, src: "/img-trotteuses/trotteuse-rond-noir.2.png" },
+                { id: 65, src: "/img-trotteuses/trotteuse-rond-or.2.png" },
+                { id: 66, src: "/img-trotteuses/trotteuse-rond-or.2.png" },
+                { id: 67, src: "/img-trotteuses/trotteuse-eclair-argent.2.png" },
+                { id: 68, src: "/img-trotteuses/trotteuse-eclair-or-rose.2.png" },
+                { id: 69, src: "/img-trotteuses/trotteuse-eclair-or.2.png" },
             ]
         },
 
@@ -173,41 +251,53 @@ export default function PersoMontre () {
 
     const generateRules = (isCommon, id) => {
         const rules = {
-        bracelets: isCommon ? [10, 11, 12, 13, 14] : [10, 11, 12.1, 13, 14.1],
-        ...(id === 21 ? { lunettes: [90, 91, 92, 93] } : {}),
-        cadrans: [30, 31, 32, 33, 34],
-        'couleur logo': [40, 41, 42], 
-        aiguilles: [50, 51, 52],
-        trotteuses: [60, 61, 62],
-        'couleur date': [70, 71],
-        loupe: [80, 81]
+            'taille du boitier': [1002, 1003],
+            bracelets: isCommon ? [10, 11, 12, 13, 14] : [10, 11, 12.1, 13, 14.1],
+            ...(id === 21 ? { lunettes: [90, 91, 92, 93, 94, 95, 96] } : {}),
+            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381],
+            'couleur logo': [40, 41, 42],
+            aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
+            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
+            'couleur date': [70, 71],
+            loupe: [80, 81]
+        };
+
+        Object.keys(rules).forEach((key) => {
+            if (!rules[key].length) {
+                delete rules[key];
+            }
+        });
+
+        return rules;
     };
-
-     Object.keys(rules).forEach((key) => {
-        if (!rules[key].length) {
-            delete rules[key]; 
-        }
-    });
-
-    return rules;
-};
 
     const filteringRules = {
         20: generateRules(false),
         21: {
+            'taille du boitier': [1002, 1003],
             bracelets: [10, 12.1, 14],
             lunettes: [90, 91, 92, 93, 94, 95, 96],
-            cadrans: [30, 31, 32, 33, 34],
+            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381],
             'couleur logo': [40, 41, 42],
-            aiguilles: [50, 51, 52],
-            trotteuses: [60, 61, 62],
+            aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
+            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
             'couleur date': [70, 71],
             loupe: [81]
         },
         22: generateRules(true),
         23: generateRules(false),
-        24: generateRules(true),
-        25: { bracelets: [15, 16], cadrans: [], 'couleur logo': [], aiguilles: [], trotteuses: [], 'couleur date': [], loupe: [] },
+        24: {
+            'taille du boitier': [1001, 1002, 1003],
+            bracelets: [10, 11, 12.1, 13, 14.1],
+            lunettes: [],
+            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381],
+            'couleur logo': [40, 41, 42],
+            aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
+            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
+            'couleur date': [70, 71],
+            loupe: [80, 81]
+        },
+        1001: { bracelets: [15, 16], cadrans: [], 'couleur logo': [], aiguilles: [], trotteuses: [], 'couleur date': [], loupe: [] },
 
     };
 
@@ -222,7 +312,6 @@ export default function PersoMontre () {
 
     const handleImageClick = (thumbnailId) => {
         const selectedPart = categories[currentCategory].name.toLowerCase();
-
         const isFirstCategory = currentCategory === 0;
 
         if (isFirstCategory) {
@@ -235,23 +324,24 @@ export default function PersoMontre () {
             );
             setSelectedThumbnails({ [selectedPart]: thumbnailId });
             setSelectedOptions({ [selectedPart]: thumbnailId });
-        } else {
-/*
-            setMainImages((prevImages) =>
-                prevImages.map((img) =>
-                    img.id === 5 ? { ...img, src: 'vide.png' } : img
-                )
-            );
-
-            if (thumbnailId === 34) {
-                setMainImages((prevImages) =>
-                    prevImages.map((img) =>
-                        img.id === 5
-                            ? { ...img, src: products.find((product) => product.id === thumbnailId)?.imageUrl }
-                            : img
-                    )
-                );
-            }*/
+        }
+        else {
+            /*
+                        setMainImages((prevImages) =>
+                            prevImages.map((img) =>
+                                img.id === 5 ? { ...img, src: 'vide.png' } : img
+                            )
+                        );
+            
+                        if (thumbnailId === 34) {
+                            setMainImages((prevImages) =>
+                                prevImages.map((img) =>
+                                    img.id === 5
+                                        ? { ...img, src: products.find((product) => product.id === thumbnailId)?.imageUrl }
+                                        : img
+                                )
+                            );
+                        }*/
 
             setMainImages((prevImages) =>
                 prevImages.map((img) =>
@@ -270,72 +360,151 @@ export default function PersoMontre () {
                 [selectedPart]: thumbnailId,
             }));
         }
+
+        if (selectedPart === 'cadrans') {
+            handleCadranChange(thumbnailId); 
+        }
     };
 
 
     const getFilteredOptions = () => {
         const firstCategoryName = categories[0].name.toLowerCase();
         const currentCategoryName = categories[currentCategory].name.toLowerCase();
-    
+
         const firstSelection = selectedOptions[firstCategoryName];
 
         const boitiersToSkip = [20, 22, 23, 24, 25];
-    
+        const sizeToSkip = [21]
+
         if (firstSelection && boitiersToSkip.includes(parseInt(firstSelection, 10)) && currentCategoryName === "lunettes") {
             const nextCategory = categories.findIndex(category => category.name.toLowerCase() === currentCategoryName) + 1;
             setCurrentCategory(nextCategory);
-            return [];  
+            return [];
         }
-    
+
+        if (firstSelection && sizeToSkip.includes(parseInt(firstSelection, 10)) && currentCategoryName === "taille du boitier") {
+            const nextCategory = categories.findIndex(category => category.name.toLowerCase() === currentCategoryName) + 1;
+            setCurrentCategory(nextCategory);
+            return [];
+        }
+
         if (!firstSelection) return categories[currentCategory].options;
-    
+
         const rules = filteringRules[firstSelection];
-    
+
         if (!rules || !rules[currentCategoryName]) {
             return categories[currentCategory].options;
         }
-    
+
         return categories[currentCategory].options.filter((option) =>
             rules[currentCategoryName]?.includes(option.id)
         );
     };
 
+    useEffect(() => {
+        const selectedCadranId = selectedOptions['cadrans'];  
+        const cadransToShowMovement = [351, 361, 371, 381];
+    
+        if (cadransToShowMovement.includes(parseInt(selectedCadranId, 10))) {
+            setShowMovementCheckbox(true);
+            setMovementSelected(true); 
+        } else {
+            setShowMovementCheckbox(false);
+            setMovementSelected(false); 
+        }
+    }, [selectedOptions['cadrans']]);
+
+
     const handleNextCategory = () => {
-        if (currentCategory < categories.length - 1) {
-            setCurrentCategory(currentCategory + 1);
+        const currentCategoryName = categories[currentCategory]?.name.toLowerCase();
+
+        const dateToSkip = [351];
+
+        if (currentCategoryName === "trotteuses") {
+            const fifthSelection = selectedOptions[categories[4].name.toLowerCase()];
+
+            if (fifthSelection && dateToSkip.includes(parseInt(fifthSelection, 10))) {
+                console.log("Trotteuse sélectionnée, ne pas avancer.");
+                return;
+            }
+        }
+
+        let nextCategory = currentCategory + 1;
+        if (nextCategory < categories.length) {
+            setCurrentCategory(nextCategory);
         }
     };
 
+
     const handlePreviousCategory = () => {
         let prevCategory = currentCategory - 1;
-    
-        if (categories[prevCategory]?.name.toLowerCase() === 'lunettes' && isCategoryInvisible(prevCategory)) {
-            prevCategory = 1;  
+
+        if (prevCategory < 0) {
+            return;
         }
-    
+
+        if (categories[prevCategory]?.name.toLowerCase() === 'lunettes' && isCategoryInvisible(prevCategory)) {
+            prevCategory = 2;
+        }
+
+        if (categories[prevCategory]?.name.toLowerCase() === 'taille du boitier' && isCategoryInvisible(prevCategory)) {
+            prevCategory = 0;
+        }
+
         if (prevCategory >= 0) {
             setCurrentCategory(prevCategory);
         }
     };
 
     const isCategoryInvisible = (categoryIndex) => {
+        if (categoryIndex < 0 || categoryIndex >= categories.length) {
+            return false;
+        }
         const categoryName = categories[categoryIndex]?.name.toLowerCase();
         const boitiersToSkip = [20, 22, 23, 24, 25];
-        
+        const sizeToSkip = [21]
+
         if (categoryName === "lunettes") {
             const firstSelection = selectedOptions[categories[0].name.toLowerCase()];
             return firstSelection && boitiersToSkip.includes(parseInt(firstSelection, 10));
         }
-    
+
+        if (categoryName === "taille du boitier") {
+            const firstSelection = selectedOptions[categories[0].name.toLowerCase()];
+            return firstSelection && sizeToSkip.includes(parseInt(firstSelection, 10));
+        }
+
         return false;
     };
-    
 
+    const handleMovementCheckboxChange = () => {
+        setMovementSelected(!movementSelected); 
+    };
+
+    const handleCadranChange = (selectedCadranId) => {
+        const cadransToShowMovement = [351, 361, 371, 381]; 
+
+        if (cadransToShowMovement.includes(selectedCadranId)) {
+            setShowMovementCheckbox(true); 
+            setMovementSelected(true); 
+        } else {
+            setShowMovementCheckbox(false); 
+            setMovementSelected(false); 
+        }
+    };
+    
 
     const addToCart = () => {
         const selectedProducts = Object.entries(selectedThumbnails).map(([part, id]) => {
             return products.find(product => product.id === id);
         }).filter(Boolean);
+
+        if (movementSelected) {
+            const movement = products.find(product => product.type === 'Mouvement' && product.name.includes('Mouvement NH35'));
+            if (movement) {
+                selectedProducts.push(movement);
+            }
+        }
 
         if (selectedProducts.length > 0) {
 
@@ -371,14 +540,31 @@ export default function PersoMontre () {
     };
 
     const isCartReady = () => {
-    
+
         return categories.every(category => {
             const selectedPart = category.name.toLowerCase();
-            
-            if (selectedPart === 'lunettes' && selectedThumbnails['boîtiers'] === 20) {
-                return true; 
+
+            if (selectedPart === 'lunettes' && [20, 22, 23, 24, 25].includes(selectedThumbnails['boîtiers'])) {
+                return true;
             }
-    
+
+            if (selectedPart === 'taille du boitier' && [21].includes(selectedThumbnails['boîtiers'])) {
+                return true;
+            }
+
+            if (selectedPart === 'couleur date' && [351, 361, 371, 381].includes(selectedThumbnails['cadrans'])) {
+                return true;
+            }
+
+            if (selectedPart === 'loupe' && [351, 361, 371, 381].includes(selectedThumbnails['cadrans'])) {
+                return true;
+            }
+
+            if (selectedPart === 'trotteuses' && [351, 361, 371, 381].includes(selectedThumbnails['cadrans']) && !movementSelected) {
+                return false;
+            }
+
+
             return selectedThumbnails[selectedPart] !== undefined;
         });
     };
@@ -393,15 +579,26 @@ export default function PersoMontre () {
                     ))}
                 </div>
                 <div className="customization-panel">
-                <p>Les dimensions des composants ne sont pas toutes identiques à la réalité</p>
+                    <p>Les dimensions des composants ne sont pas toutes identiques à la réalité</p>
                     <h3>{categories[currentCategory].name}</h3>
                     <div className="nav-btn-perso">
                         <button onClick={handlePreviousCategory} disabled={currentCategory === 0}>
                             <i className="fa-solid fa-arrow-left"></i>
                         </button>
-                        <button onClick={handleNextCategory} disabled={currentCategory === categories.length - 1}>
+                        <button
+                            onClick={handleNextCategory}
+                            disabled={
+                                currentCategory === categories.length - 1 ||  
+                                (categories[currentCategory]?.name.toLowerCase() === "trotteuses" &&
+                                    selectedOptions[categories[4].name.toLowerCase()] &&
+                                    [351, 361, 371, 381].includes(parseInt(selectedOptions[categories[4].name.toLowerCase()], 10))
+                                )
+                            }
+                        >
                             <i className="fa-solid fa-arrow-right"></i>
                         </button>
+
+
                     </div>
 
                     <div className="options-list">
@@ -428,6 +625,17 @@ export default function PersoMontre () {
                         })}
                     </div>
                 </div>
+                {showMovementCheckbox && (
+        <div className="movement-checkbox">
+            <input
+                type="checkbox"
+                id="movement"
+                checked={movementSelected}
+                onChange={handleMovementCheckboxChange}
+            />
+            <label htmlFor="movement">Ajouter le mouvement à ma montre</label>
+        </div>
+    )}
                 <button
                     onClick={addToCart}
                     disabled={!isCartReady()}

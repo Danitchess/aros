@@ -2321,7 +2321,7 @@ em {
   grid-template-columns: repeat(3, 1fr);
   overflow-y: auto;
   width: 640px;
-  height: 200px;
+  height: 370px;
   gap: 20px;
   margin-left: 23px;
   margin-bottom: 100px;
@@ -2340,6 +2340,11 @@ em {
 .options-list img:hover {
   background-color: #bdbdbd;
   transform: scale(0.96);
+}
+
+.movement-checkbox {
+  margin-bottom: 20px;
+  font-size: 15px;
 }
 
 
@@ -2375,6 +2380,7 @@ em {
 
   .options-list {
     width: 500px;
+    height: 255px;
     gap: 0px;
     margin-left: 145px;
     margin-bottom: 100px;
@@ -2422,7 +2428,8 @@ em {
 
   .options-list {
     width: 100%;
-    gap: 0px;
+    height: 225px;
+    gap: 2px;
     margin-left: 0px;
     margin-bottom: 100px;
   }
