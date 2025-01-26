@@ -6,8 +6,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import '@fortawesome/fontawesome-free/css/all.css';
 import { CartProvider } from './context/CartContext';
-import { AuthProvider } from "./context/AuthContext";
-import MetaTags from "../lib/MetaTags";  
+import { AuthProvider } from "./context/AuthContext"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,7 +54,6 @@ export default function RootLayout({
     let timeout;
 
     const handleScroll = () => {
-      clearTimeout(timeout); // Réinitialise le délai
 
       timeout = setTimeout(() => {
         const currentScrollY = window.scrollY;
@@ -67,23 +65,39 @@ export default function RootLayout({
         }
 
         lastScrollY = currentScrollY;
-      }, 100); // Déclenchement après 100ms
+      }, 100); 
     };
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      clearTimeout(timeout); // Nettoie le délai
     };
   }, []);
 
   const totalItemsInCart = cart.length;
 
+  const MetaTags = ({
+    title: "Aros Watch - Personnalisation de montres",
+    description: "Découvrez la boutique Aros Watch et personnalisez votre montre unique.",
+    keywords: "Aros, Aros Watch, montre personnalisée, montre personnalisable, boutique en ligne, design de montres",
+    ogTitle: "Aros Watch",
+    ogDescription: "Personnalisation de montres",
+    ogUrl: "https://www.aroswatch.be",
+    ogImage: "/public/aros.JPG",
+  })
+
   return (
     <html lang="fr">
-      {/* Ajoutez les métadonnées avec le composant MetaTags */}
-      <MetaTags />
+       <head>
+      <title>{MetaTags.title}</title>
+      <meta name="description" content={MetaTags.description} />
+      <meta name="keywords" content={MetaTags.keywords} />
+      <meta property="og:title" content={MetaTags.ogTitle} />
+      <meta property="og:description" content={MetaTags.ogDescription} />
+      <meta property="og:url" content={MetaTags.ogUrl} />
+      <meta property="og:image" content={MetaTags.ogImage} />
+    </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <header className={`header ${headerVisible ? "" : "hidden"}`}>
           <div>

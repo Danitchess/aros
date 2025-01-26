@@ -13,9 +13,9 @@ export default function PersoMontre() {
 
 
     const [mainImages, setMainImages] = useState([
-        { id: 1, src: 'https://www.watchmodcustom.com/img/scenes/ndkcf/737.jpg' },
-        { id: 2, src: 'https://www.watchmodcustom.com/img/scenes/ndkcf/755.jpg' },
-        { id: 3, src: 'https://www.watchmodcustom.com/img/scenes/ndkcf/725.jpg' },
+        { id: 1, src: '/img-bracelet/bracelet-seiko-argent-20mm.png' },
+        { id: 2, src: '/img-boitier/boitier-seiko-argent-39mm.1.png' },
+        { id: 3, src: '/img-cadrans/cadran-blanc.png' },
         { id: 4, src: 'vide.png' },
         { id: 5, src: 'vide.png' },
         { id: 6, src: 'vide.png' },
@@ -362,7 +362,7 @@ export default function PersoMontre() {
         }
 
         if (selectedPart === 'cadrans') {
-            handleCadranChange(thumbnailId); 
+            handleCadranChange(thumbnailId);
         }
     };
 
@@ -402,15 +402,15 @@ export default function PersoMontre() {
     };
 
     useEffect(() => {
-        const selectedCadranId = selectedOptions['cadrans'];  
+        const selectedCadranId = selectedOptions['cadrans'];
         const cadransToShowMovement = [351, 361, 371, 381];
-    
+
         if (cadransToShowMovement.includes(parseInt(selectedCadranId, 10))) {
             setShowMovementCheckbox(true);
-            setMovementSelected(true); 
+            setMovementSelected(true);
         } else {
             setShowMovementCheckbox(false);
-            setMovementSelected(false); 
+            setMovementSelected(false);
         }
     }, [selectedOptions['cadrans']]);
 
@@ -478,21 +478,21 @@ export default function PersoMontre() {
     };
 
     const handleMovementCheckboxChange = () => {
-        setMovementSelected(!movementSelected); 
+        setMovementSelected(!movementSelected);
     };
 
     const handleCadranChange = (selectedCadranId) => {
-        const cadransToShowMovement = [351, 361, 371, 381]; 
+        const cadransToShowMovement = [351, 361, 371, 381];
 
         if (cadransToShowMovement.includes(selectedCadranId)) {
-            setShowMovementCheckbox(true); 
-            setMovementSelected(true); 
+            setShowMovementCheckbox(true);
+            setMovementSelected(true);
         } else {
-            setShowMovementCheckbox(false); 
-            setMovementSelected(false); 
+            setShowMovementCheckbox(false);
+            setMovementSelected(false);
         }
     };
-    
+
 
     const addToCart = () => {
         const selectedProducts = Object.entries(selectedThumbnails).map(([part, id]) => {
@@ -588,7 +588,7 @@ export default function PersoMontre() {
                         <button
                             onClick={handleNextCategory}
                             disabled={
-                                currentCategory === categories.length - 1 ||  
+                                currentCategory === categories.length - 1 ||
                                 (categories[currentCategory]?.name.toLowerCase() === "trotteuses" &&
                                     selectedOptions[categories[4].name.toLowerCase()] &&
                                     [351, 361, 371, 381].includes(parseInt(selectedOptions[categories[4].name.toLowerCase()], 10))
@@ -598,10 +598,23 @@ export default function PersoMontre() {
                             <i className="fa-solid fa-arrow-right"></i>
                         </button>
 
-
                     </div>
-
+                    <button
+                        onClick={addToCart}
+                        disabled={!isCartReady()}
+                        style={{
+                            padding: '10px 20px',
+                            marginBottom: '20px',
+                            backgroundColor: isCartReady() ? '#bda208' : '#cacaca',
+                            border: 'solid 1px #bda208',
+                            color: '#fff',
+                            cursor: isCartReady() ? 'pointer' : 'not-allowed',
+                        }}
+                    >
+                        Ajouter au panier
+                    </button>
                     <div className="options-list">
+
                         {getFilteredOptions().map((smallImage) => {
                             const selectedPart = categories[currentCategory].name.toLowerCase();
                             const isSelected = selectedThumbnails[selectedPart] === smallImage.id;
@@ -626,29 +639,16 @@ export default function PersoMontre() {
                     </div>
                 </div>
                 {showMovementCheckbox && (
-        <div className="movement-checkbox">
-            <input
-                type="checkbox"
-                id="movement"
-                checked={movementSelected}
-                onChange={handleMovementCheckboxChange}
-            />
-            <label htmlFor="movement">Ajouter le mouvement à ma montre</label>
-        </div>
-    )}
-                <button
-                    onClick={addToCart}
-                    disabled={!isCartReady()}
-                    style={{
-                        padding: '10px 20px',
-                        backgroundColor: isCartReady() ? '#bda208' : '#cacaca',
-                        border: 'solid 1px #bda208',
-                        color: '#fff',
-                        cursor: isCartReady() ? 'pointer' : 'not-allowed',
-                    }}
-                >
-                    Ajouter au panier
-                </button>
+                    <div className="movement-checkbox">
+                        <input
+                            type="checkbox"
+                            id="movement"
+                            checked={movementSelected}
+                            onChange={handleMovementCheckboxChange}
+                        />
+                        <label htmlFor="movement">Ajouter le mouvement à ma montre</label>
+                    </div>
+                )}
             </div>
         </div>
     );
