@@ -5,7 +5,7 @@ export default function Montre2 () {
   const item = { 
     id: 2, 
     name: 'Aros White Glow', 
-    price: 150,
+    price: 151,
     imageUrl: '/img-modeles/modele2.png',  
     components: [] 
   };

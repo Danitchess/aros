@@ -5,7 +5,7 @@ export default function Montre3 () {
   const item = { 
     id: 2, 
     name: 'Aros Emerald Gold', 
-    price: 150,
+    price: 151,
     imageUrl: '/img-modeles/modele3.png',  
     components: [] 
   };

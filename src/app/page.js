@@ -23,7 +23,7 @@ export default function Home() {
         <ul className="ul-home">
 
           <li>
-            <Link href="/aros-nautilus-one">
+          <Link href="/montre1">
               <div className="image-container">
                 <img
                   className="imgMontre1"
@@ -44,7 +44,7 @@ export default function Home() {
           </li>
 
           <li>
-            <Link href="/aros-epure">
+            <Link href="/montre2">
               <div className="image-container">
                 <img
                   className="imgMontre1"
@@ -58,13 +58,13 @@ export default function Home() {
               </div>
             </Link>
 
-            <p className="model-name">Aros </p>
-            <p className="model-desc">Automatique mécanique, 36mm</p>
-            <p className="prix-model-home">140 €</p>
+            <p className="model-name">Aros White Glow</p>
+            <p className="model-desc">Automatique mécanique, 36/39mm</p>
+            <p className="prix-model-home">151 €</p>
           </li>
 
           <li>
-            <Link href="/aros-goldwatch">
+            <Link href="/montre3">
               <div className="image-container">
                 <img
                   className="imgMontre1"
@@ -76,9 +76,9 @@ export default function Home() {
                 />
               </div>
             </Link>
-            <p className="model-name">Aros </p>
-            <p className="model-desc">Automatique mécanique, 36mm</p>
-            <p className="prix-model-home">160 €</p>
+            <p className="model-name">Aros Emerald Gold</p>
+            <p className="model-desc">Automatique mécanique, 36/39mm</p>
+            <p className="prix-model-home">151 €</p>
           </li>
 
         </ul>
