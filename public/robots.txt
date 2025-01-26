@@ -1,9 +1,11 @@
-# *
+# Robots.txt for Aros Watch
+
+# Autoriser tous les robots à accéder à tout le site
 User-agent: *
 Allow: /
 
-# Host
-Host: https://aroswatch.be
-
-# Sitemaps
+# Spécifier l'URL du sitemap
 Sitemap: https://aroswatch.be/sitemap.xml
+
+# Spécifier le nom d'hôte (utile pour les moteurs de recherche)
+Host: https://aroswatch.be
