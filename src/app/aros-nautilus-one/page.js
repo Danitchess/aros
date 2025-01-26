@@ -20,8 +20,8 @@ export default function Montre1 () {
 
   const item = {
     id: 1,
-    name: 'Origin',
-    price: 150,
+    name: 'Aros Nautilus One',
+    price: 165,
     imageUrl: mainImage,
     components: []
   };
@@ -73,7 +73,7 @@ export default function Montre1 () {
 
             <p className='p-prix-modele'>{item.price} €</p>
 
-            <button
+            {/*<button
               style={{
                 padding: '10px 20px',
                 backgroundColor: '#bda208',
@@ -85,7 +85,7 @@ export default function Montre1 () {
               
             >
               Ajouter au panier
-            </button>
+            </button>*/}
           </div>
         </div>
       </div>

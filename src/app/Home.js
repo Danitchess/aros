@@ -59,9 +59,9 @@ export default function Home() {
               </div>
             </Link>
 
-            <p className="model-name">Aros </p>
-            <p className="model-desc">Automatique mécanique, 36mm</p>
-            <p className="prix-model-home">140 €</p>
+            <p className="model-name">Aros White Glow</p>
+            <p className="model-desc">Automatique mécanique, 36/39mm</p>
+            <p className="prix-model-home">151 €</p>
           </li>
 
           <li>
@@ -77,9 +77,9 @@ export default function Home() {
                 />
               </div>
             </Link>
-            <p className="model-name">Aros </p>
-            <p className="model-desc">Automatique mécanique, 36mm</p>
-            <p className="prix-model-home">160 €</p>
+            <p className="model-name">Aros Emerald Gold</p>
+            <p className="model-desc">Automatique mécanique, 36/39mm</p>
+            <p className="prix-model-home">151 €</p>
           </li>
 
         </ul>
