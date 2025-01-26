@@ -1,38 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.aroswatch.be/</loc>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://www.aroswatch.be/sitemap-pages.xml</loc>
     <lastmod>2025-01-25</lastmod>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://www.aroswatch.be/shop</loc>
-    <lastmod>2025-01-25</lastmod>
-    <priority>0.90</priority>
-  </url>
-  <url>
-    <loc>https://www.aroswatch.be/about</loc>
-    <lastmod>2025-01-25</lastmod>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://www.aroswatch.be/contact</loc>
-    <lastmod>2025-01-25</lastmod>
-    <priority>0.50</priority>
-  </url>
-  <url>
-    <loc>https://www.aroswatch.be/cart</loc>
-    <lastmod>2025-01-25</lastmod>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.aroswatch.be/login</loc>
-    <lastmod>2025-01-25</lastmod>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.aroswatch.be/register</loc>
-    <lastmod>2025-01-25</lastmod>
-    <priority>0.70</priority>
-  </url>
-</urlset>
+  </sitemap>
+</sitemapindex>
