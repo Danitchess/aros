@@ -6,7 +6,9 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import '@fortawesome/fontawesome-free/css/all.css';
 import { CartProvider } from './context/CartContext';
-import { AuthProvider } from "./context/AuthContext"; 
+import { AuthProvider } from "./context/AuthContext";
+import Head from "next/head";
+import Script from 'next/script';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,7 +67,7 @@ export default function RootLayout({
         }
 
         lastScrollY = currentScrollY;
-      }, 100); 
+      }, 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -80,7 +82,7 @@ export default function RootLayout({
   const MetaTags = ({
     title: "Aros Watch - Personnalisation de montres",
     description: "Découvrez la boutique Aros Watch et personnalisez votre montre unique.",
-    keywords: "Aros, Aros Watch, montre personnalisée, montre personnalisable, boutique en ligne, design de montres",
+    keywords: "aros, aros watch, Aros, Aros Watch, montre personnalisée, montre personnalisable, boutique en ligne, design de montres",
     ogTitle: "Aros Watch",
     ogDescription: "Personnalisation de montres",
     ogUrl: "https://www.aroswatch.be",
@@ -89,15 +91,33 @@ export default function RootLayout({
 
   return (
     <html lang="fr">
-       <head>
-      <title>{MetaTags.title}</title>
-      <meta name="description" content={MetaTags.description} />
-      <meta name="keywords" content={MetaTags.keywords} />
-      <meta property="og:title" content={MetaTags.ogTitle} />
-      <meta property="og:description" content={MetaTags.ogDescription} />
-      <meta property="og:url" content={MetaTags.ogUrl} />
-      <meta property="og:image" content={MetaTags.ogImage} />
-    </head>
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-7N5YH3WS6Q"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-7N5YH3WS6Q');
+            `,
+          }}
+        />
+      </Head>
+      <head>
+        <title>{MetaTags.title}</title>
+        <meta name="description" content={MetaTags.description} />
+        <meta name="keywords" content={MetaTags.keywords} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://aroswatch.be" />
+        <meta property="og:title" content={MetaTags.ogTitle} />
+        <meta property="og:description" content={MetaTags.ogDescription} />
+        <meta property="og:url" content={MetaTags.ogUrl} />
+        <meta property="og:image" content={MetaTags.ogImage} />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <header className={`header ${headerVisible ? "" : "hidden"}`}>
           <div>
@@ -164,7 +184,21 @@ export default function RootLayout({
 
         <AuthProvider>
           <CartProvider>
-            {children}
+          <>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-7N5YH3WS6Q"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-7N5YH3WS6Q');
+        `}
+      </Script>
+      {children}
+    </>
           </CartProvider>
         </AuthProvider>
 
