@@ -23,7 +23,7 @@ export default function Home() {
         <ul className="ul-home">
 
           <li>
-          <Link href="/montre1">
+          <Link href="/aros-nautilus-one">
               <div className="image-container">
                 <img
                   className="imgMontre1"
@@ -44,7 +44,7 @@ export default function Home() {
           </li>
 
           <li>
-            <Link href="/montre2">
+            <Link href="/aros-epure">
               <div className="image-container">
                 <img
                   className="imgMontre1"
@@ -64,7 +64,7 @@ export default function Home() {
           </li>
 
           <li>
-            <Link href="/montre3">
+            <Link href="/aros-goldwatch">
               <div className="image-container">
                 <img
                   className="imgMontre1"
