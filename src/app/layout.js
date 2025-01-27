@@ -53,8 +53,12 @@ export default function RootLayout({
 
   useEffect(() => {
     let lastScrollY = 0;
+
     let ticking = false;
-  
+
+    let timeout;
+    clearTimeout(timeout);
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
   
@@ -76,6 +80,7 @@ export default function RootLayout({
   
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeout);
     };
   }, []);
   
