@@ -71,10 +71,10 @@ export default function RootLayout({
     };
 
     window.addEventListener("scroll", handleScroll);
-    clearTimeout(timeout);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeout);
     };
   }, []);
 
