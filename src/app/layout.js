@@ -53,29 +53,32 @@ export default function RootLayout({
 
   useEffect(() => {
     let lastScrollY = 0;
-    let timeout;
-
+    let ticking = false;
+  
     const handleScroll = () => {
-
-      timeout = setTimeout(() => {
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY > lastScrollY) {
-          setHeaderVisible(false);
-        } else {
-          setHeaderVisible(true);
-        }
-
-        lastScrollY = currentScrollY;
-      }, 100);
+      const currentScrollY = window.scrollY;
+  
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (currentScrollY > lastScrollY) {
+            setHeaderVisible(false);
+          } else {
+            setHeaderVisible(true);
+          }
+          lastScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
 
   const totalItemsInCart = cart.length;
 

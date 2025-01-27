@@ -36,12 +36,15 @@ export default function PersoMontre() {
         { id: 13, type: 'Bracelet', name: 'Bracelet argent et rose mailles serrées', price: 25, imageUrl: '/img-bracelet/bracelet-seiko-argent-rose-20mm.png' },
         { id: 14, type: 'Bracelet', name: 'Bracelet argent', price: 20, imageUrl: '/img-bracelet/bracelet-argent-20mm.png' },
         { id: 0o14, type: 'Bracelet', name: 'Bracelet argent', price: 20, imageUrl: '/img-bracelet/bracelet-argent-20mm-14.1.png' },
+        { id: 17, type: 'Bracelet', name: 'Bracelet argent audemars piguet', price: 30, imageUrl: '/img-bracelet/bracelet-argent-ap.png' },
+
 
         { id: 20, type: 'Boitier', name: 'Boitier argent, lunette entaillée', price: 30, imageUrl: '/img-boitier/boitier-seiko-argent-39mm.1.png' },
         { id: 21, type: 'Boitier', name: 'Boitier argent avec lunette 40mm', price: 35, imageUrl: '/img-boitier/boitier-argent-bezel.png' },
         { id: 22, type: 'Boitier', name: 'Boitier argent et or, lunette entaillée ', price: 40, imageUrl: '/img-boitier/boitier-seiko-argent-or-39mm.png' },
         { id: 23, type: 'Boitier', name: 'Boitier argent et or, lunette lisse ', price: 40, imageUrl: '/img-boitier/boitier-lisse-argent-or-39mm.png' },
         { id: 24, type: 'Boitier', name: 'Boitier argent et rose, lunette entaillée ', price: 40, imageUrl: '/img-boitier/boitier-seiko-argent-rose-39mm.png' },
+        { id: 25, type: 'Boitier', name: 'Boitier argent audemars piguet', price: 45, imageUrl: '/img-boitier/boitier-argent-ap.png' },
 
         { id: 30, type: 'Cadran', name: 'Cadran noir', price: 31, imageUrl: '/img-cadrans/cadran-noir.png' },
         { id: 31, type: 'Cadran', name: 'Cadran blanc', price: 31, imageUrl: '/img-cadrans/cadran-blanc.png' },
@@ -128,6 +131,7 @@ export default function PersoMontre() {
                 { id: 22, src: "/img-boitier/boitier-seiko-argent-or-39mm.2.png" },
                 { id: 23, src: "/img-boitier/boitier-lisse-argent-or-39mm.2.png" },
                 { id: 24, src: "/img-boitier/boitier-seiko-argent-rose-39mm.2.png" },
+                { id: 25, src: "/img-boitier/boitier-argent-ap.2.png" },
             ]
         },
 
@@ -148,6 +152,7 @@ export default function PersoMontre() {
                 { id: 13, src: "/img-bracelet/bracelet-seiko-argent-rose-20mm.png" },
                 { id: 14, src: "/img-bracelet/bracelet-argent-20mm.2.png" },
                 { id: 14.1, src: "/img-bracelet/bracelet-argent-20mm.2.png" },
+                { id: 17, src: "/img-bracelet/bracelet-argent-ap.png" },
 
                 { id: 15, src: "/img-bracelet/bracelet-seiko-argent-rose-13mm.png" },
                 { id: 16, src: "/img-bracelet/bracelet-argent-13mm.png" },
@@ -295,6 +300,17 @@ export default function PersoMontre() {
             'couleur date': [70, 71],
             loupe: [80, 81]
         },
+        25: {
+            'taille du boitier': [],
+            bracelets: [17],
+            lunettes: [],
+            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381],
+            'couleur logo': [40, 41, 42],
+            aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
+            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
+            'couleur date': [70, 71],
+            loupe: []
+        },
         1001: { bracelets: [15, 16], cadrans: [], 'couleur logo': [], aiguilles: [], trotteuses: [], 'couleur date': [], loupe: [] },
 
     };
@@ -372,7 +388,7 @@ export default function PersoMontre() {
         const firstSelection = selectedOptions[firstCategoryName];
 
         const boitiersToSkip = [20, 22, 23, 24, 25];
-        const sizeToSkip = [21]
+        const sizeToSkip = [21, 25]
 
         if (firstSelection && boitiersToSkip.includes(parseInt(firstSelection, 10)) && currentCategoryName === "lunettes") {
             const nextCategory = categories.findIndex(category => category.name.toLowerCase() === currentCategoryName) + 1;
@@ -417,11 +433,21 @@ export default function PersoMontre() {
         const currentCategoryName = categories[currentCategory]?.name.toLowerCase();
 
         const dateToSkip = [351];
+        const loupeToSkip = [25]
 
         if (currentCategoryName === "trotteuses") {
             const fifthSelection = selectedOptions[categories[4].name.toLowerCase()];
 
             if (fifthSelection && dateToSkip.includes(parseInt(fifthSelection, 10))) {
+                console.log("Trotteuse sélectionnée, ne pas avancer.");
+                return;
+            }
+        }
+
+        if (currentCategoryName === "couleur date") {
+            const fifthSelection = selectedOptions[categories[8].name.toLowerCase()];
+
+            if (fifthSelection && loupeToSkip.includes(parseInt(fifthSelection, 10))) {
                 console.log("Trotteuse sélectionnée, ne pas avancer.");
                 return;
             }
@@ -460,7 +486,8 @@ export default function PersoMontre() {
         }
         const categoryName = categories[categoryIndex]?.name.toLowerCase();
         const boitiersToSkip = [20, 22, 23, 24, 25];
-        const sizeToSkip = [21]
+        const sizeToSkip = [21, 25]
+        const loupeToSkip = [25]
 
         if (categoryName === "lunettes") {
             const firstSelection = selectedOptions[categories[0].name.toLowerCase()];
@@ -470,6 +497,11 @@ export default function PersoMontre() {
         if (categoryName === "taille du boitier") {
             const firstSelection = selectedOptions[categories[0].name.toLowerCase()];
             return firstSelection && sizeToSkip.includes(parseInt(firstSelection, 10));
+        }
+
+        if (categoryName === "loupe") {
+            const firstSelection = selectedOptions[categories[0].name.toLowerCase()];
+            return firstSelection && loupeToSkip.includes(parseInt(firstSelection, 10));
         }
 
         return false;
@@ -546,7 +578,7 @@ export default function PersoMontre() {
                 return true;
             }
 
-            if (selectedPart === 'taille du boitier' && [21].includes(selectedThumbnails['boîtiers'])) {
+            if (selectedPart === 'taille du boitier' && [21, 25].includes(selectedThumbnails['boîtiers'])) {
                 return true;
             }
 
@@ -560,6 +592,10 @@ export default function PersoMontre() {
 
             if (selectedPart === 'trotteuses' && [351, 361, 371, 381].includes(selectedThumbnails['cadrans']) && !movementSelected) {
                 return false;
+            }
+
+            if (selectedPart === 'loupe' && [25].includes(selectedThumbnails['boîtiers'])) {
+                return true;
             }
 
 
@@ -590,6 +626,10 @@ export default function PersoMontre() {
                                 (categories[currentCategory]?.name.toLowerCase() === "trotteuses" &&
                                     selectedOptions[categories[4].name.toLowerCase()] &&
                                     [351, 361, 371, 381].includes(parseInt(selectedOptions[categories[4].name.toLowerCase()], 10))
+                                ) ||
+                                (categories[currentCategory]?.name.toLowerCase() === "couleur date" &&
+                                    selectedOptions[categories[0].name.toLowerCase()] &&
+                                    [25].includes(parseInt(selectedOptions[categories[0].name.toLowerCase()], 10))
                                 )
                             }
                         >

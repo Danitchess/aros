@@ -235,6 +235,12 @@ export default function Panier() {
                       <p className='p-item-price-panier'>{component.price} €</p>
                     </div>
                   ))}
+                  {cartState.map((item) => (
+                    <div className='item-panier' key={item.id}>
+                      <h3 className='h3-item-name-panier'>{item.name}</h3>
+                      <p className='p-item-price-panier'>{item.price} €</p>
+                    </div>
+                  ))}
 
                   {/*<div className='item-panier' key={fixedProducts.id}>
                     <h3 className='h3-item-name-panier'>{fixedProducts.name}</h3>
