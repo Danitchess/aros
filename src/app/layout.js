@@ -54,6 +54,7 @@ export default function RootLayout({
   useEffect(() => {
     let lastScrollY = 0;
     let timeout;
+    clearTimeout(timeout);
 
     const handleScroll = () => {
 
