@@ -64,7 +64,7 @@ export default function Home() {
           </li>
 
           <li>
-            <Link href="/aros-ermald-gold">
+            <Link href="/aros-emrald-gold">
               <div className="image-container">
                 <img
                   className="imgMontre1"
