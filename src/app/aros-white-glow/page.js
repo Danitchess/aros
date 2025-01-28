@@ -6,13 +6,13 @@ export default function Montre2() {
 
   const { setCart } = useCart();
   const [cartState, setCartState] = useState([]);
-  
-  const item = { 
-    id: 2, 
-    name: 'Aros White Glow', 
+
+  const item = {
+    id: 2,
+    name: 'Aros White Glow',
     price: 151,
-    imageUrl: '/img-modeles/modele2.png',  
-    components: [] 
+    imageUrl: '/img-modeles/modele2.png',
+    components: []
   };
 
   const addModelToCart = () => {
@@ -52,21 +52,14 @@ export default function Montre2() {
       <h2>{item.name}</h2>
       <img className="modele1" title="151€" id="imgMontre1" src={item.imageUrl} alt={item.name} height={500} width={400} />
       <p>{item.price} €</p>
-      
+
       <button
-              style={{
-                padding: '10px 20px',
-                backgroundColor: '#bda208',
-                border: 'none',
-                borderRadius: '5px',
-                color: '#fff',
-                cursor: 'pointer',
-              }}
-              onClick={addModelToCart}
-              
-            >
-              Ajouter au panier
-            </button>
+        className='btn-add-cart'
+        onClick={addModelToCart}
+
+      >
+        Ajouter au panier
+      </button>
     </div>
   );
 };

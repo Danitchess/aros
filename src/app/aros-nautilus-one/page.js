@@ -117,7 +117,6 @@ export default function Montre1() {
             <button
               className='btn-add-cart'
               onClick={addModelToCart}
-              
             >
               Ajouter au panier
             </button>

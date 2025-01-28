@@ -54,14 +54,7 @@ export default function Montre3() {
       <p>{item.price} €</p>
 
       <button
-        style={{
-          padding: '10px 20px',
-          backgroundColor: '#bda208',
-          border: 'none',
-          borderRadius: '5px',
-          color: '#fff',
-          cursor: 'pointer',
-        }}
+        className='btn-add-cart'
         onClick={addModelToCart}
 
       >
