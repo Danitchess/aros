@@ -22,6 +22,7 @@ export default function PersoMontre() {
         { id: 7, src: 'vide.png' },
         { id: 8, src: 'vide.png' },
         { id: 9, src: 'vide.png' },
+        { id: 10, src: 'vide.png' },
 
     ]);
 
@@ -49,6 +50,7 @@ export default function PersoMontre() {
         { id: 30, type: 'Cadran', name: 'Cadran noir', price: 31, imageUrl: '/img-cadrans/cadran-noir.png' },
         { id: 31, type: 'Cadran', name: 'Cadran blanc', price: 31, imageUrl: '/img-cadrans/cadran-blanc.png' },
         { id: 32, type: 'Cadran', name: 'Cadran bleu', price: 31, imageUrl: '/img-cadrans/cadran-bleu.png' },
+        { id: 391, type: 'Cadran', name: 'Cadran vert touches d\'or', price: 31, imageUrl: '/img-cadrans/cadran-vert-or.png' },
         { id: 33, type: 'Cadran', name: 'Cadran nautilus vert', price: 31, imageUrl: '/img-cadrans/cadran-nautilus-vert.png' },
         { id: 34, type: 'Cadran', name: 'Cadran nautilus blanc', price: 31, imageUrl: '/img-cadrans/cadran-nautilus-blanc.png' },
         { id: 35, type: 'Cadran', name: 'Cadran nautilus bleu', price: 31, imageUrl: '/img-cadrans/cadran-nautilus-bleu.png' },
@@ -148,10 +150,8 @@ export default function PersoMontre() {
                 { id: 10, src: "/img-bracelet/bracelet-seiko-argent-20mm.png" },
                 { id: 11, src: "/img-bracelet/bracelet-seiko-argent-or-20mm.2.png" },
                 { id: 12, src: "/img-bracelet/bracelet-argent-or-20mm.2.png" },
-                { id: 12.1, src: "/img-bracelet/bracelet-argent-or-20mm.2.png" },
                 { id: 13, src: "/img-bracelet/bracelet-seiko-argent-rose-20mm.png" },
                 { id: 14, src: "/img-bracelet/bracelet-argent-20mm.2.png" },
-                { id: 14.1, src: "/img-bracelet/bracelet-argent-20mm.2.png" },
                 { id: 17, src: "/img-bracelet/bracelet-argent-ap.png" },
 
                 { id: 15, src: "/img-bracelet/bracelet-seiko-argent-rose-13mm.png" },
@@ -177,6 +177,7 @@ export default function PersoMontre() {
                 { id: 30, src: "/img-cadrans/cadran-noir.2.png" },
                 { id: 31, src: "/img-cadrans/cadran-blanc.2.png" },
                 { id: 32, src: "/img-cadrans/cadran-bleu.2.png" },
+                { id: 391, src: "/img-cadrans/cadran-vert-or.2.png" },
                 { id: 33, src: "/img-cadrans/cadran-nautilus-vert.2.png" },
                 { id: 34, src: "/img-cadrans/cadran-nautilus-blanc.2.png" },
                 { id: 35, src: "/img-cadrans/cadran-nautilus-bleu.2.png" },
@@ -255,9 +256,9 @@ export default function PersoMontre() {
     const generateRules = (isCommon, id) => {
         const rules = {
             'taille du boitier': [1002, 1003],
-            bracelets: isCommon ? [10, 11, 12, 13, 14] : [10, 11, 12.1, 13, 14.1],
+            bracelets: isCommon ? [10, 11, 12, 13, 14] : [10, 11, 12, 13, 14],
             ...(id === 21 ? { lunettes: [90, 91, 92, 93, 94, 95, 96] } : {}),
-            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381],
+            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
             trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
@@ -280,7 +281,7 @@ export default function PersoMontre() {
             'taille du boitier': [1002, 1003],
             bracelets: [10, 12.1, 14],
             lunettes: [90, 91, 92, 93, 94, 95, 96],
-            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381],
+            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
             trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
@@ -293,7 +294,7 @@ export default function PersoMontre() {
             'taille du boitier': [1001, 1002, 1003],
             bracelets: [10, 11, 12.1, 13, 14.1],
             lunettes: [],
-            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381],
+            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
             trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
@@ -304,7 +305,7 @@ export default function PersoMontre() {
             'taille du boitier': [],
             bracelets: [17],
             lunettes: [],
-            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381],
+            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
             trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
@@ -319,8 +320,10 @@ export default function PersoMontre() {
     useEffect(() => {
         const savedCart = localStorage.getItem('cart');
         if (savedCart) {
-            setCartState(JSON.parse(savedCart));
-            setCart(JSON.parse(savedCart));
+            const parsedCart = JSON.parse(savedCart);
+            console.log('Parsed cart from localStorage:', parsedCart); // Débogage
+            setCartState(parsedCart);
+            setCart(parsedCart);
         }
     }, [setCart]);
 
@@ -383,12 +386,15 @@ export default function PersoMontre() {
 
     const getFilteredOptions = () => {
         const firstCategoryName = categories[0].name.toLowerCase();
+        const fifthCategoryName = categories[4].name.toLowerCase();
         const currentCategoryName = categories[currentCategory].name.toLowerCase();
 
         const firstSelection = selectedOptions[firstCategoryName];
+        const fifthSelection = selectedOptions[fifthCategoryName];
 
         const boitiersToSkip = [20, 22, 23, 24, 25];
         const sizeToSkip = [21, 25]
+        const logoToSkip = [391]
 
         if (firstSelection && boitiersToSkip.includes(parseInt(firstSelection, 10)) && currentCategoryName === "lunettes") {
             const nextCategory = categories.findIndex(category => category.name.toLowerCase() === currentCategoryName) + 1;
@@ -397,6 +403,12 @@ export default function PersoMontre() {
         }
 
         if (firstSelection && sizeToSkip.includes(parseInt(firstSelection, 10)) && currentCategoryName === "taille du boitier") {
+            const nextCategory = categories.findIndex(category => category.name.toLowerCase() === currentCategoryName) + 1;
+            setCurrentCategory(nextCategory);
+            return [];
+        }
+
+        if (fifthSelection && logoToSkip.includes(parseInt(fifthSelection, 10)) && currentCategoryName === "couleur logo") {
             const nextCategory = categories.findIndex(category => category.name.toLowerCase() === currentCategoryName) + 1;
             setCurrentCategory(nextCategory);
             return [];
@@ -475,6 +487,10 @@ export default function PersoMontre() {
             prevCategory = 0;
         }
 
+        if (categories[prevCategory]?.name.toLowerCase() === 'couleur logo' && isCategoryInvisible(prevCategory)) {
+            prevCategory = 4;
+        }
+
         if (prevCategory >= 0) {
             setCurrentCategory(prevCategory);
         }
@@ -488,6 +504,7 @@ export default function PersoMontre() {
         const boitiersToSkip = [20, 22, 23, 24, 25];
         const sizeToSkip = [21, 25]
         const loupeToSkip = [25]
+        const logoToSkip = [391]
 
         if (categoryName === "lunettes") {
             const firstSelection = selectedOptions[categories[0].name.toLowerCase()];
@@ -497,6 +514,11 @@ export default function PersoMontre() {
         if (categoryName === "taille du boitier") {
             const firstSelection = selectedOptions[categories[0].name.toLowerCase()];
             return firstSelection && sizeToSkip.includes(parseInt(firstSelection, 10));
+        }
+
+        if (categoryName === "couleur logo") {
+            const fifthSelection = selectedOptions[categories[4].name.toLowerCase()];
+            return fifthSelection && logoToSkip.includes(parseInt(fifthSelection, 10));
         }
 
         if (categoryName === "loupe") {
@@ -586,6 +608,10 @@ export default function PersoMontre() {
                 return true;
             }
 
+            if (selectedPart === 'couleur logo' && [391].includes(selectedThumbnails['cadrans'])) {
+                return true;
+            }
+
             if (selectedPart === 'loupe' && [351, 361, 371, 381].includes(selectedThumbnails['cadrans'])) {
                 return true;
             }
@@ -613,6 +639,7 @@ export default function PersoMontre() {
                     ))}
                 </div>
                 <div className="customization-panel">
+                    <p>𝐏𝐨𝐮𝐫 𝐮𝐧𝐞 𝐦𝐞𝐢𝐥𝐥𝐞𝐮𝐫𝐞 𝐞𝐱𝐩𝐞́𝐫𝐢𝐞𝐧𝐜𝐞, 𝐩𝐞𝐫𝐬𝐨𝐧𝐧𝐚𝐥𝐢𝐬𝐞𝐳 𝐬𝐮𝐫 𝐮𝐧 𝐞́𝐜𝐫𝐚𝐧 𝐝𝐞 𝐠𝐫𝐚𝐧𝐝𝐞 𝐭𝐚𝐢𝐥𝐥𝐞</p>
                     <p>Les dimensions des composants ne sont pas toutes identiques à la réalité</p>
                     <h3>{categories[currentCategory].name}</h3>
                     <div className="nav-btn-perso">

@@ -4,11 +4,11 @@ import { useCart } from '../context/CartContext';
 
 export default function Montre1() {
   const [mainImage, setMainImage] = useState('/img-modeles/modele-nautilus1.png');
-  const [selectedImageName, setSelectedImageName] = useState('Dégradé noir vers bleu'); 
+  const [selectedImageName, setSelectedImageName] = useState('Argent : Dégradé noir vers bleu'); 
   const [selectedPrice, setSelectedPrice] = useState(160); 
   const { setCart } = useCart();
   const [cartState, setCartState] = useState([]);
-  const [, setSelectedOptions] = useState({});
+
 
   const [smallImages] = useState([
     { id: 1, price: 160, name: 'Argent : Dégradé noir bleu', src: '/img-modeles/modele-nautilus1.png' },
@@ -23,6 +23,7 @@ export default function Montre1() {
     { id: 10, price: 165, name: 'Rose : Dégradé noir bleu', src: '/img-modeles/modele-nautilus10.png' },
   ]);
 
+
   const item = {
     id: 1,
     name: 'Aros Nautilus One',
@@ -30,39 +31,44 @@ export default function Montre1() {
     components: []
   };
 
+  console.log(item.name)
+
   const handleImageClick = (src, name, price) => {
     setMainImage(src); 
     setSelectedImageName(name); 
     setSelectedPrice(price); 
   };
 
+  const addModelToCart = () => {
+    const watchItem = {
+      idMontre: Date.now(),
+      name: item.name,
+      imageUrl: mainImage,
+      components: [],
+      price: selectedPrice,
+      quantity: 1,
+    };
   
-  const addToCart = () => {
-    const existingWatchIndex = cartState.findIndex(item => item.name === selectedImageName);
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || cartState;
   
-    const updatedCartState = [...cartState];
+    const existingWatchIndex = currentCart.findIndex(
+      (cartItem) =>
+        cartItem.name === watchItem.name &&
+        cartItem.imageUrl === watchItem.imageUrl &&
+        cartItem.price === watchItem.price
+    );
+  
+    const updatedCartState = [...currentCart];
   
     if (existingWatchIndex !== -1) {
-
       updatedCartState[existingWatchIndex].quantity += 1;
     } else {
-
-      const newWatch = {
-        id: Date.now(), 
-        name: selectedImageName, 
-        price: selectedPrice, 
-        image: mainImage, 
-        quantity: 1 
-      };
-  
-      updatedCartState.push(newWatch);
+      updatedCartState.push(watchItem);
     }
-
+  
     setCartState(updatedCartState);
     setCart(updatedCartState);
     localStorage.setItem('cart', JSON.stringify(updatedCartState));
-  
-    setSelectedOptions({});
   };
   
 
@@ -108,20 +114,13 @@ export default function Montre1() {
             <p>{selectedImageName}</p>
             <p className="p-prix-modele">{selectedPrice} €</p>
 
-             {/*<button
-              style={{
-                padding: '10px 20px',
-                backgroundColor: '#bda208',
-                border: 'none',
-                borderRadius: '5px',
-                color: '#fff',
-                cursor: 'pointer',
-              }}
-              onClick={addToCart}
+            <button
+              className='btn-add-cart'
+              onClick={addModelToCart}
               
             >
               Ajouter au panier
-            </button>*/}
+            </button>
           </div>
         </div>
       </div>

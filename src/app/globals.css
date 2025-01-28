@@ -162,16 +162,7 @@ html, body {
   padding: 15px;
 }
 
-.nbr-panier-item {
 
-  margin-left: -25px;
-  margin-top: -20px;
-  background-color: #000000;
-  color: white;
-  border-radius: 50%;
-  padding: 5px 10px;
-  font-size: 10px;
-}
 
 .btn-login-header {
   cursor: pointer;
@@ -691,7 +682,7 @@ html, body {
   
   .model {
     background-color: #a7a7a7;
-    height: 480px;
+    height: 550px;
     overflow-x: auto;
   }
   
@@ -781,7 +772,7 @@ html, body {
   
   .model {
     background-color: #a7a7a7;
-    height: 420px;
+    height: 500px;
     overflow-x: auto;
   }
   
@@ -880,7 +871,7 @@ html, body {
   
   .model {
     background-color: #a7a7a7;
-    height: 375px;
+    height: 450px;
     overflow-x: auto;
   }
   
@@ -2260,6 +2251,70 @@ em {
   font-size: 20px;
 }
 
+.btn-add-cart {
+  padding: 10px 20px;
+  background-color: #bda208;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease; 
+}
+
+.btn-add-cart:hover {
+  transform: scale(0.96); 
+}
+
+
+@media screen and (max-width: 1024px) {
+  
+  .img-modele {
+    margin-left: 20%;
+  }
+  
+  .options {
+    margin-left: 8%;
+    width: 34%;
+    text-align: left;
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  
+  .img-modele {
+    margin-left: 5%;
+  }
+  
+  .options {
+    margin-left: 8%;
+    width: 34%;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .modele {
+    display: block;
+    align-items: center;
+  }
+  
+  .img-modele {
+    background-color: #a7a7a7;
+    margin-left: 0%;
+    border-radius: 5px;
+  }
+  
+  .options {
+    margin-top: 2%;
+    margin-left: 0%;
+    width: 90%;
+    text-align: center;
+  }
+  
+}
+
 
 
 /*---------------------------Shop------------------------------*/
@@ -2552,9 +2607,21 @@ em {
   object-fit: cover;
 }
 
+.img-watch-mod {
+  position: absolute;
+  margin-left: 600px;
+  margin-top: -50px;
+}
+
 .img-watch-panier {
   width: 300px;
   height: 300px;
+  object-fit: cover;
+}
+
+.img-watch-panier-mod {
+  width: 250px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -2603,6 +2670,13 @@ em {
   display: flex;
   margin-top: 600px;
   margin-left: 500px;
+}
+
+.panier-quantity-mod {
+  position: absolute;
+  display: flex;
+  margin-top: 250px;
+  margin-left: 590px;
 }
 
 .btn-quantity {
@@ -2740,6 +2814,7 @@ span {
 
 .btn-fillpanier {
   background-color: #bda208;
+  color: #000000;
   font-size: 18px;
   padding: 10px 30px;
   margin-top: 20px;
