@@ -41,13 +41,15 @@ export default function Montre1() {
 
   const addModelToCart = () => {
     const watchItem = {
-      idMontre: Date.now(),
+      idMontre: 0o1,
       name: item.name,
       imageUrl: mainImage,
       components: [],
       price: selectedPrice,
       quantity: 1,
     };
+
+    console.log(watchItem)
   
     const currentCart = JSON.parse(localStorage.getItem('cart')) || cartState;
   
