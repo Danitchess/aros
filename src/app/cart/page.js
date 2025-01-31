@@ -93,9 +93,9 @@ export default function Panier() {
     }
 
     const userEmail = localStorage.getItem('userEmail');
-
-    const products = cartState.flatMap(item =>
-      item.components.map(component => ({
+    const products = cartState.flatMap(item => {
+      // Composants associés au produit (s'il y en a)
+      const componentProducts = item.components.map(component => ({
         id: component.id,
         name: component.name,
         unit_amount: {
@@ -106,11 +106,32 @@ export default function Panier() {
         breakdown: {
           item_total: {
             currency_code: 'EUR',
-            value: (parseFloat(component.price) * item.quantity).toFixed(2)
+            value: (parseFloat(component.price) * item.quantity).toFixed(2),
           }
         }
-      }))
-    );
+      }));
+    
+      // Si la montre n'a pas de composants, ajouter directement la montre
+      if (item.components.length === 0) {
+        componentProducts.push({
+          id: item.idMontre,
+          name: item.name,
+          unit_amount: {
+            currency_code: 'EUR',
+            value: item.price.toFixed(2),
+          },
+          quantity: item.quantity.toString(),
+          breakdown: {
+            item_total: {
+              currency_code: 'EUR',
+              value: (parseFloat(item.price) * item.quantity).toFixed(2),
+            }
+          }
+        });
+      }
+    
+      return componentProducts;
+    });
 
     const allProducts = [...products];
 
@@ -129,6 +150,9 @@ export default function Panier() {
       },
       body: JSON.stringify(orderData),
     });
+
+    console.log("Payload reçu :", { allProducts, totalAmount, userEmail });
+
 
     if (!response.ok) {
       const errorMessage = await response.text();
@@ -149,7 +173,7 @@ export default function Panier() {
 
   return (
     <div className='main-panier'>
-      <h2>Mon Panier</h2>
+      <h2 className="h2-panier">Mon Panier</h2>
 
       {cartState && cartState.length > 0 ? (
         <div className='main-panier-item'>

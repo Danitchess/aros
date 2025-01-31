@@ -37,6 +37,9 @@ export async function POST(req) {
       quantity: product.quantity,
     }));
 
+    console.log("Line Items pour Stripe :", lineItems);
+
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card", "bancontact"],
       line_items: lineItems,
@@ -70,16 +73,14 @@ export async function POST(req) {
     const client = await pool.connect(); 
 
     try {
-      await client.query('BEGIN'); // Démarrer la transaction
+      await client.query('BEGIN'); 
 
-      // Insertion de la commande
       const insertOrderResult = await client.query(
         "INSERT INTO orders (userEmail, date, status) VALUES ($1, NOW(), $2) RETURNING id",
         [userEmail, "payée"]
       );
       const orderId = insertOrderResult.rows[0].id;
 
-      // Insertion des détails de la commande
       const orderDetailsValues = allProducts.flatMap((product) => [
         orderId,
         product.id,
@@ -99,7 +100,6 @@ export async function POST(req) {
 
       await client.query('COMMIT');
 
-      // Retour du succès avec sessionId pour Stripe
       return NextResponse.json(
         {
           success: true,
@@ -110,12 +110,12 @@ export async function POST(req) {
         { status: 201 }
       );
     } catch (poolError) {
-      // Rollback si une erreur se produit
+
       await client.query('ROLLBACK');
       console.error("Erreur lors de l'enregistrement de la commande :", poolError);
       throw new Error("Erreur interne lors de l'enregistrement de la commande.");
     } finally {
-      client.release(); // Libérer le client
+      client.release(); 
     }
   } catch (error) {
     console.error("Erreur Stripe ou Base de données :", error);
