@@ -398,7 +398,7 @@ export default function PersoMontre() {
         const firstSelection = selectedOptions[firstCategoryName];
         const fifthSelection = selectedOptions[fifthCategoryName];
 
-        const boitiersToSkip = [20, 22, 23, 24, 25];
+        const boitiersToSkip = [20, 22, 23, 24, 25, 26];
         const sizeToSkip = [21, 25]
         const logoToSkip = [391]
 
@@ -507,7 +507,7 @@ export default function PersoMontre() {
             return false;
         }
         const categoryName = categories[categoryIndex]?.name.toLowerCase();
-        const boitiersToSkip = [20, 22, 23, 24, 25];
+        const boitiersToSkip = [20, 22, 23, 24, 25, 26];
         const sizeToSkip = [21, 25]
         const loupeToSkip = [25]
         const logoToSkip = [391]
@@ -602,7 +602,7 @@ export default function PersoMontre() {
         return categories.every(category => {
             const selectedPart = category.name.toLowerCase();
 
-            if (selectedPart === 'lunettes' && [20, 22, 23, 24, 25].includes(selectedThumbnails['boîtiers'])) {
+            if (selectedPart === 'lunettes' && [20, 22, 23, 24, 25, 26].includes(selectedThumbnails['boîtiers'])) {
                 return true;
             }
 
