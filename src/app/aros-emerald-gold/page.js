@@ -17,11 +17,12 @@ export default function Montre3() {
 
   const addModelToCart = () => {
     const watchItem = {
-      idMontre: Date.now(),
+      idMontre: 0o3,
       name: item.name,
       imageUrl: item.imageUrl,
       components: [],
       price: item.price,
+      type: item.name,
       quantity: 1,
     };
 

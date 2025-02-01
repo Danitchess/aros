@@ -94,7 +94,7 @@ export default function Panier() {
 
     const userEmail = localStorage.getItem('userEmail');
     const products = cartState.flatMap(item => {
-      // Composants associés au produit (s'il y en a)
+
       const componentProducts = item.components.map(component => ({
         id: component.id,
         name: component.name,
@@ -111,22 +111,21 @@ export default function Panier() {
         }
       }));
     
-      // Si la montre n'a pas de composants, ajouter directement la montre
       if (item.components.length === 0) {
         componentProducts.push({
           id: item.idMontre,
-          name: item.name,
+          name: `${item.name ?? ''}, ${item.type ?? ''}`.trim(), 
           unit_amount: {
             currency_code: 'EUR',
-            value: item.price.toFixed(2),
+            value: parseFloat(item.price).toFixed(2), 
           },
-          quantity: item.quantity.toString(),
+          quantity: item.quantity, 
           breakdown: {
             item_total: {
               currency_code: 'EUR',
               value: (parseFloat(item.price) * item.quantity).toFixed(2),
-            }
-          }
+            },
+          },
         });
       }
     
@@ -262,7 +261,7 @@ export default function Panier() {
                   ))
                 ) : (
                   <div className='item-panier'>
-                    <h3 className='h3-item-name-panier'>Prix</h3>
+                    <h3 className='h3-item-name-panier'>{item.type}</h3>
                     <p className='p-item-price-panier'>{item.price} €</p>
                   </div>
                 )}

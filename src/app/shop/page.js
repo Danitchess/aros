@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
+import Link from 'next/link'
 
 export default function PersoMontre() {
     const { setCart } = useCart();
@@ -37,15 +38,17 @@ export default function PersoMontre() {
         { id: 13, type: 'Bracelet', name: 'Bracelet argent et rose mailles serrées', price: 25, imageUrl: '/img-bracelet/bracelet-seiko-argent-rose-20mm.png' },
         { id: 14, type: 'Bracelet', name: 'Bracelet argent', price: 20, imageUrl: '/img-bracelet/bracelet-argent-20mm.png' },
         { id: 0o14, type: 'Bracelet', name: 'Bracelet argent', price: 20, imageUrl: '/img-bracelet/bracelet-argent-20mm-14.1.png' },
-        { id: 17, type: 'Bracelet', name: 'Bracelet argent audemars piguet', price: 30, imageUrl: '/img-bracelet/bracelet-argent-ap.png' },
+        { id: 17, type: 'Bracelet', name: 'Bracelet argent Royal Oak', price: 30, imageUrl: '/img-bracelet/bracelet-argent-ap.png' },
+        { id: 18, type: 'Bracelet', name: 'Bracelet argent', price: 30, imageUrl: '/img-bracelet/bracelet-argent-president.png' },
 
 
         { id: 20, type: 'Boitier', name: 'Boitier argent, lunette entaillée', price: 30, imageUrl: '/img-boitier/boitier-seiko-argent-39mm.1.png' },
-        { id: 21, type: 'Boitier', name: 'Boitier argent avec lunette 40mm', price: 35, imageUrl: '/img-boitier/boitier-argent-bezel.png' },
+        { id: 21, type: 'Boitier', name: 'Boitier argent 40mm, avec lunette', price: 35, imageUrl: '/img-boitier/boitier-argent-bezel.png' },
         { id: 22, type: 'Boitier', name: 'Boitier argent et or, lunette entaillée ', price: 40, imageUrl: '/img-boitier/boitier-seiko-argent-or-39mm.png' },
         { id: 23, type: 'Boitier', name: 'Boitier argent et or, lunette lisse ', price: 40, imageUrl: '/img-boitier/boitier-lisse-argent-or-39mm.png' },
         { id: 24, type: 'Boitier', name: 'Boitier argent et rose, lunette entaillée ', price: 40, imageUrl: '/img-boitier/boitier-seiko-argent-rose-39mm.png' },
-        { id: 25, type: 'Boitier', name: 'Boitier argent audemars piguet', price: 45, imageUrl: '/img-boitier/boitier-argent-ap.png' },
+        { id: 25, type: 'Boitier', name: 'Boitier argent Royal Oak', price: 45, imageUrl: '/img-boitier/boitier-argent-ap.png' },
+        { id: 26, type: 'Boitier', name: 'Boitier argent, lunette lisse', price: 30, imageUrl: '/img-boitier/boitier-argent-president.png' },
 
         { id: 30, type: 'Cadran', name: 'Cadran noir', price: 31, imageUrl: '/img-cadrans/cadran-noir.png' },
         { id: 31, type: 'Cadran', name: 'Cadran blanc', price: 31, imageUrl: '/img-cadrans/cadran-blanc.png' },
@@ -134,6 +137,7 @@ export default function PersoMontre() {
                 { id: 23, src: "/img-boitier/boitier-lisse-argent-or-39mm.2.png" },
                 { id: 24, src: "/img-boitier/boitier-seiko-argent-rose-39mm.2.png" },
                 { id: 25, src: "/img-boitier/boitier-argent-ap.2.png" },
+                { id: 26, src: "/img-boitier/boitier-argent-president.2.png" },
             ]
         },
 
@@ -153,6 +157,7 @@ export default function PersoMontre() {
                 { id: 13, src: "/img-bracelet/bracelet-seiko-argent-rose-20mm.png" },
                 { id: 14, src: "/img-bracelet/bracelet-argent-20mm.2.png" },
                 { id: 17, src: "/img-bracelet/bracelet-argent-ap.png" },
+                { id: 18, src: "/img-bracelet/bracelet-argent-president.2.png" },
 
                 { id: 15, src: "/img-bracelet/bracelet-seiko-argent-rose-13mm.png" },
                 { id: 16, src: "/img-bracelet/bracelet-argent-13mm.png" },
@@ -253,10 +258,10 @@ export default function PersoMontre() {
 
     ];
 
-    const generateRules = (isCommon, id) => {
+    const generateRules = (id) => {
         const rules = {
             'taille du boitier': [1002, 1003],
-            bracelets: isCommon ? [10, 11, 12, 13, 14] : [10, 11, 12, 13, 14],
+            bracelets: [10, 11, 12, 13, 14, 18],
             ...(id === 21 ? { lunettes: [90, 91, 92, 93, 94, 95, 96] } : {}),
             cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
@@ -276,10 +281,10 @@ export default function PersoMontre() {
     };
 
     const filteringRules = {
-        20: generateRules(false),
+        20: generateRules(),
         21: {
             'taille du boitier': [1002, 1003],
-            bracelets: [10, 12.1, 14],
+            bracelets: [10, 12.1, 14, 18],
             lunettes: [90, 91, 92, 93, 94, 95, 96],
             cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
@@ -288,11 +293,11 @@ export default function PersoMontre() {
             'couleur date': [70, 71],
             loupe: [81]
         },
-        22: generateRules(true),
-        23: generateRules(false),
+        22: generateRules(),
+        23: generateRules(),
         24: {
             'taille du boitier': [1001, 1002, 1003],
-            bracelets: [10, 11, 12.1, 13, 14.1],
+            bracelets: [10, 11, 12, 13, 14, 18],
             lunettes: [],
             cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
@@ -312,6 +317,7 @@ export default function PersoMontre() {
             'couleur date': [70, 71],
             loupe: []
         },
+        26: generateRules(),
         1001: { bracelets: [15, 16], cadrans: [], 'couleur logo': [], aiguilles: [], trotteuses: [], 'couleur date': [], loupe: [] },
 
     };
@@ -321,7 +327,7 @@ export default function PersoMontre() {
         const savedCart = localStorage.getItem('cart');
         if (savedCart) {
             const parsedCart = JSON.parse(savedCart);
-            console.log('Parsed cart from localStorage:', parsedCart); // Débogage
+            console.log('Parsed cart from localStorage:', parsedCart); 
             setCartState(parsedCart);
             setCart(parsedCart);
         }
@@ -630,6 +636,7 @@ export default function PersoMontre() {
     };
 
     return (
+        <div>
         <div className="main-custom">
             <div>
                 <h2 className='h2-persoMontre'>Montre Personnalisée</h2>
@@ -716,5 +723,71 @@ export default function PersoMontre() {
                 )}
             </div>
         </div>
+        <section className="model">
+        <h3 className="h3-model">Modèles</h3>
+        <ul className="ul-home">
+
+          <li>
+          <Link href="/aros-nautilus-one">
+              <div className="image-container">
+                <img
+                  className="imgMontre1"
+                  id="imgMontre1"
+                  src="/img-modeles/modele-nautilus1.png"
+                  alt=""
+                  height={500}
+                  width={400}
+                />
+
+              </div>
+            </Link>
+
+            <p className="model-name">Aros Nautilus One</p>
+            <p className="model-desc">Automatique mécanique, 45.5mm</p>
+            <p className="prix-model-home">160 €</p>
+            
+          </li>
+
+          <li>
+            <Link href="/aros-white-glow">
+              <div className="image-container">
+                <img
+                  className="imgMontre1"
+                  id="imgMontre2"
+                  src="/img-modeles/modele2.png"
+                  alt=""
+                  height={500}
+                  width={400}
+                />
+
+              </div>
+            </Link>
+
+            <p className="model-name">Aros White Glow</p>
+            <p className="model-desc">Automatique mécanique, 36/39mm</p>
+            <p className="prix-model-home">151 €</p>
+          </li>
+
+          <li>
+            <Link href="/aros-emerald-gold">
+              <div className="image-container">
+                <img
+                  className="imgMontre1"
+                  id="imgMontre3"
+                  src="/img-modeles/modele3.png"
+                  alt=""
+                  height={500}
+                  width={400}
+                />
+              </div>
+            </Link>
+            <p className="model-name">Aros Emerald Gold</p>
+            <p className="model-desc">Automatique mécanique, 36/39mm</p>
+            <p className="prix-model-home">151 €</p>
+          </li>
+
+        </ul>
+      </section>
+    </div>
     );
 };

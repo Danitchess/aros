@@ -26,7 +26,7 @@ export default function Montre1() {
 
   const item = {
     id: 1,
-    name: 'Aros Nautilus One',
+    name: `Aros Nautilus One`,
     imageUrl: mainImage,
     components: []
   };
@@ -46,6 +46,7 @@ export default function Montre1() {
       imageUrl: mainImage,
       components: [],
       price: selectedPrice,
+      type: selectedImageName,
       quantity: 1,
     };
 
@@ -76,7 +77,7 @@ export default function Montre1() {
 
   return (
     <div key={item.id} className="main-montre">
-      <h2>{item.name}</h2>
+      <h2>Aros Nautilus One</h2>
 
       <div className='modele'>
         <div className='img-modele'>

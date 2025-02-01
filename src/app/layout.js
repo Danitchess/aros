@@ -20,14 +20,44 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default function RootLayout({
-  children,
-}) {
+function useHeaderVisibility() {
+  const [headerVisible, setHeaderVisible] = useState(true);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    let timeout = null;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      clearTimeout(timeout);
+
+      timeout = setTimeout(() => {
+        if (currentScrollY > lastScrollY) {
+          setHeaderVisible(false);
+        } else {
+          setHeaderVisible(true);
+        }
+        lastScrollY = currentScrollY;
+      }, 100); 
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  return headerVisible;
+}
+
+export default function RootLayout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cart, setCart] = useState([]);
-  const [, setProducts] = useState([]);
-  const [headerVisible, setHeaderVisible] = useState(true);
+  const totalItemsInCart = cart.length;
+  const headerVisible = useHeaderVisibility();
 
   useEffect(() => {
     const userToken = localStorage.getItem("userToken");
@@ -36,13 +66,8 @@ export default function RootLayout({
     }
   }, []);
 
-  const openMenu = () => {
-    setMenuOpen(true);
-  };
-
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  const openMenu = () => setMenuOpen(true);
+  const closeMenu = () => setMenuOpen(false);
 
   const handleLogout = () => {
     localStorage.removeItem("userToken");
@@ -51,59 +76,20 @@ export default function RootLayout({
     closeMenu();
   };
 
-  useEffect(() => {
-    let lastScrollY = 0;
-
-    let ticking = false;
-
-    let timeout;
-    clearTimeout(timeout);
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-  
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (currentScrollY > lastScrollY) {
-            setHeaderVisible(false);
-          } else {
-            setHeaderVisible(true);
-          }
-          lastScrollY = currentScrollY;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-  
-    window.addEventListener("scroll", handleScroll);
-  
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(timeout);
-    };
-  }, []);
-  
-
-  const totalItemsInCart = cart.length;
-
-  const MetaTags = ({
+  const MetaTags = {
     title: "Aros Watch - Personnalisation de montres",
     description: "Découvrez la boutique Aros Watch et personnalisez votre montre unique.",
-    keywords: "aros, aros watch, Aros, Aros Watch, montre personnalisée, montre personnalisable, boutique en ligne, design de montres",
+    keywords: "aros, aros watch, montre personnalisée, boutique en ligne",
     ogTitle: "Aros Watch",
     ogDescription: "Personnalisation de montres",
     ogUrl: "https://www.aroswatch.be",
     ogImage: "/public/aros.JPG",
-  })
+  };
 
   return (
     <html lang="fr">
       <Head>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-7N5YH3WS6Q"
-        ></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7N5YH3WS6Q"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -147,43 +133,57 @@ export default function RootLayout({
             {totalItemsInCart > 0 && (
               <span className="nbr-panier-item">{totalItemsInCart}</span>
             )}
-
-            <button className="btn-menu-icon" onClick={openMenu}><i className="fa-solid fa-bars"></i></button>
+            <button className="btn-menu-icon" onClick={openMenu}>
+              <i className="fa-solid fa-bars"></i>
+            </button>
 
             <div id="sideMenu" className={`menu-icon ${menuOpen ? "open" : ""}`}>
-              <nav className="btn-close-menu" onClick={closeMenu}>&times;</nav>
+              <nav className="btn-close-menu" onClick={closeMenu}>
+                &times;
+              </nav>
               {isLoggedIn ? (
                 <>
-                  <Link className="navlink-boutique" href="/shop" onClick={closeMenu}>Boutique</Link>
-                  <Link className="navlink-page" href="/about" onClick={closeMenu}>À propos</Link>
-                  <Link className="navlink-page" href="/contact" onClick={closeMenu}>Contact</Link>
-                  <Link className="navlink-account" onClick={closeMenu} href="/my-account"><button className="navlink-btn-login-register-account-logout">Mon compte <i className="fa-solid fa-arrow-right"></i></button></Link>
-                  <nav className="navlink-logout" onClick={handleLogout}><button className="navlink-btn-login-register-account-logout">Se déconnecter <i className="fa-solid fa-arrow-right"></i></button></nav>
+                  <Link className="navlink-boutique" href="/shop" onClick={closeMenu}>
+                    Boutique
+                  </Link>
+                  <Link className="navlink-page" href="/about" onClick={closeMenu}>
+                    À propos
+                  </Link>
+                  <Link className="navlink-page" href="/contact" onClick={closeMenu}>
+                    Contact
+                  </Link>
+                  <Link className="navlink-account" onClick={closeMenu} href="/my-account">
+                    <button className="navlink-btn-login-register-account-logout">
+                      Mon compte <i className="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </Link>
+                  <nav className="navlink-logout" onClick={handleLogout}>
+                    <button className="navlink-btn-login-register-account-logout">
+                      Se déconnecter <i className="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </nav>
                 </>
               ) : (
                 <>
-                  <Link className="navlink-boutique" href="/shop" onClick={closeMenu}>Boutique</Link>
-                  <Link className="navlink-page" href="/about" onClick={closeMenu}>À propos</Link>
-                  <Link className="navlink-page" href="/contact" onClick={closeMenu}>Contact</Link>
-                  <Link className="navlink-login" onClick={closeMenu} href="/login"><button className="navlink-btn-login-register-account-logout">Se connecter <i className="fa-solid fa-arrow-right"></i></button></Link>
-                  <Link className="navlink-register" onClick={closeMenu} href="/register"><button className="navlink-btn-login-register-account-logout">S'inscrire <i className="fa-solid fa-arrow-right"></i></button></Link>
-                </>
-              )}
-            </div>
-
-            <button className="btn-login-header" onClick={openMenu}><i className="fa-solid fa-user"></i></button>
-
-            <div id="sideMenu" className={`header-login ${menuOpen ? "open" : ""}`}>
-              <nav className="btn-close-menu" onClick={closeMenu}>&times;</nav>
-              {isLoggedIn ? (
-                <>
-                  <Link className="navlink-account" onClick={closeMenu} href="/my-account">Mon compte</Link>
-                  <nav className="navlink-logout" onClick={handleLogout}>Se déconnecter</nav>
-                </>
-              ) : (
-                <>
-                  <Link className="navlink-login" onClick={closeMenu} href="/login">Se connecter</Link>
-                  <Link className="navlink-register" onClick={closeMenu} href="/register">S'inscrire</Link>
+                  <Link className="navlink-boutique" href="/shop" onClick={closeMenu}>
+                    Boutique
+                  </Link>
+                  <Link className="navlink-page" href="/about" onClick={closeMenu}>
+                    À propos
+                  </Link>
+                  <Link className="navlink-page" href="/contact" onClick={closeMenu}>
+                    Contact
+                  </Link>
+                  <Link className="navlink-login" onClick={closeMenu} href="/login">
+                    <button className="navlink-btn-login-register-account-logout">
+                      Se connecter <i className="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </Link>
+                  <Link className="navlink-register" onClick={closeMenu} href="/register">
+                    <button className="navlink-btn-login-register-account-logout">
+                      S'inscrire <i className="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </Link>
                 </>
               )}
             </div>
@@ -192,31 +192,40 @@ export default function RootLayout({
 
         <AuthProvider>
           <CartProvider>
-          <>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-7N5YH3WS6Q"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-7N5YH3WS6Q');
-        `}
-      </Script>
-      {children}
-    </>
+            <>
+              <Script src="https://www.googletagmanager.com/gtag/js?id=G-7N5YH3WS6Q" strategy="afterInteractive" />
+              <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-7N5YH3WS6Q');
+                `}
+              </Script>
+              {children}
+            </>
           </CartProvider>
         </AuthProvider>
 
         <footer>
           <div className="footer">
             <div className="nav2">
-              <a href="https://www.instagram.com/aros.watch/" className="nav-link2" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
-              <a href="https://www.tiktok.com/@aros.watch" className="nav-link2" target="_blank" rel="noreferrer"><i className="fa-brands fa-tiktok"></i></a>
-              <p>Téléphone : <a className="lien-tel-footer" href="tel:+32 473 34 84 34" target="_blank" rel="noreferrer">+32 473 34 84 34</a></p>
-              <p>E-mail : <a className="lien-email-footer" href="mailto:aros.wtch@gmail.com">aros.wtch@gmail.com</a></p>
+              <a href="https://www.instagram.com/aros.watch/" className="nav-link2" target="_blank" rel="noreferrer">
+                <i className="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://www.tiktok.com/@aros.watch" className="nav-link2" target="_blank" rel="noreferrer">
+                <i className="fa-brands fa-tiktok"></i>
+              </a>
+              <p>
+                Téléphone : <a className="lien-tel-footer" href="tel:+32 473 34 84 34" target="_blank" rel="noreferrer">
+                  +32 473 34 84 34
+                </a>
+              </p>
+              <p>
+                E-mail : <a className="lien-email-footer" href="mailto:aros.wtch@gmail.com">
+                  aros.wtch@gmail.com
+                </a>
+              </p>
             </div>
 
             <br />
