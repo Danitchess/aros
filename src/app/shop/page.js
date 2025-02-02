@@ -40,9 +40,9 @@ export default function PersoMontre() {
         { id: 0o14, type: 'Bracelet', name: 'Bracelet argent', price: 20, imageUrl: '/img-bracelet/bracelet-argent-20mm-14.1.png' },
         { id: 17, type: 'Bracelet', name: 'Bracelet argent Royal Oak', price: 30, imageUrl: '/img-bracelet/bracelet-argent-ap.png' },
         { id: 18, type: 'Bracelet', name: 'Bracelet argent', price: 30, imageUrl: '/img-bracelet/bracelet-argent-president.png' },
-        { id: 19, type: 'Bracelet', name: 'Bracelet cuir noir alligator', price: 30, imageUrl: '/img-bracelet/bracelet-cuir-noir-alligator.png' },
-        { id: 101, type: 'Bracelet', name: 'Bracelet cuir noir lisse', price: 30, imageUrl: '/img-bracelet/bracelet-cuir-noir-lisse.png' },
-        { id: 102, type: 'Bracelet', name: 'Bracelet cuir brun clair lisse', price: 30, imageUrl: '/img-bracelet/bracelet-cuir-brun-clair-lisse.png' },
+        { id: 19, type: 'Bracelet', name: 'Bracelet cuir noir alligator', price: 18, imageUrl: '/img-bracelet/bracelet-cuir-noir-alligator.png' },
+        { id: 101, type: 'Bracelet', name: 'Bracelet cuir noir lisse', price: 18, imageUrl: '/img-bracelet/bracelet-cuir-noir-lisse.png' },
+        { id: 102, type: 'Bracelet', name: 'Bracelet cuir brun clair lisse', price: 18, imageUrl: '/img-bracelet/bracelet-cuir-brun-clair-lisse.png' },
 
 
         { id: 20, type: 'Boitier', name: 'Boitier argent, lunette entaillée', price: 30, imageUrl: '/img-boitier/boitier-seiko-argent-39mm.1.png' },
