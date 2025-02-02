@@ -228,8 +228,9 @@ export default function RootLayout({
               <Link href="/contact">Contact</Link>
             </div>
             <br></br>
+            <br></br>
 
-            <p>Copyright &copy;2025, Designed by <a href="https://www.instagram.com/dani.tchs/" className="nav-link2" target="_blank" rel="noreferrer">Khalife Dani</a></p>
+            <p>Copyright &copy;2025, Designed by <a href="https://www.instagram.com/dani.tchs/" className="lien-email-footer" target="_blank" rel="noreferrer">Khalife Dani</a></p>
           </div>
         </footer>
       </body>
