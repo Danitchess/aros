@@ -40,6 +40,9 @@ export default function PersoMontre() {
         { id: 0o14, type: 'Bracelet', name: 'Bracelet argent', price: 20, imageUrl: '/img-bracelet/bracelet-argent-20mm-14.1.png' },
         { id: 17, type: 'Bracelet', name: 'Bracelet argent Royal Oak', price: 30, imageUrl: '/img-bracelet/bracelet-argent-ap.png' },
         { id: 18, type: 'Bracelet', name: 'Bracelet argent', price: 30, imageUrl: '/img-bracelet/bracelet-argent-president.png' },
+        { id: 19, type: 'Bracelet', name: 'Bracelet cuir noir alligator', price: 30, imageUrl: '/img-bracelet/bracelet-cuir-noir-alligator.png' },
+        { id: 101, type: 'Bracelet', name: 'Bracelet cuir noir lisse', price: 30, imageUrl: '/img-bracelet/bracelet-cuir-noir-lisse.png' },
+        { id: 102, type: 'Bracelet', name: 'Bracelet cuir brun clair lisse', price: 30, imageUrl: '/img-bracelet/bracelet-cuir-brun-clair-lisse.png' },
 
 
         { id: 20, type: 'Boitier', name: 'Boitier argent, lunette entaillée', price: 30, imageUrl: '/img-boitier/boitier-seiko-argent-39mm.1.png' },
@@ -158,6 +161,9 @@ export default function PersoMontre() {
                 { id: 14, src: "/img-bracelet/bracelet-argent-20mm.2.png" },
                 { id: 17, src: "/img-bracelet/bracelet-argent-ap.png" },
                 { id: 18, src: "/img-bracelet/bracelet-argent-president.2.png" },
+                { id: 19, src: "/img-bracelet/bracelet-cuir-noir-alligator.2.png" },
+                { id: 101, src: "/img-bracelet/bracelet-cuir-noir-lisse.2.png" },
+                { id: 102, src: "/img-bracelet/bracelet-cuir-brun-clair-lisse.2.png" },
 
                 { id: 15, src: "/img-bracelet/bracelet-seiko-argent-rose-13mm.png" },
                 { id: 16, src: "/img-bracelet/bracelet-argent-13mm.png" },
@@ -261,7 +267,7 @@ export default function PersoMontre() {
     const generateRules = (id) => {
         const rules = {
             'taille du boitier': [1002, 1003],
-            bracelets: [10, 11, 12, 13, 14, 18],
+            bracelets: [10, 11, 12, 13, 14, 18, 19, 101, 102],
             ...(id === 21 ? { lunettes: [90, 91, 92, 93, 94, 95, 96] } : {}),
             cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
@@ -284,7 +290,7 @@ export default function PersoMontre() {
         20: generateRules(),
         21: {
             'taille du boitier': [1002, 1003],
-            bracelets: [10, 12.1, 14, 18],
+            bracelets: [10, 12.1, 14, 18, 19, 101, 102],
             lunettes: [90, 91, 92, 93, 94, 95, 96],
             cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
@@ -297,7 +303,7 @@ export default function PersoMontre() {
         23: generateRules(),
         24: {
             'taille du boitier': [1001, 1002, 1003],
-            bracelets: [10, 11, 12, 13, 14, 18],
+            bracelets: [10, 11, 12, 13, 14, 18, 19, 101, 102],
             lunettes: [],
             cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
