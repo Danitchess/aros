@@ -9,6 +9,7 @@ import { CartProvider } from './context/CartContext';
 import { AuthProvider } from "./context/AuthContext";
 import Head from "next/head";
 import Script from 'next/script';
+import clsx from "clsx";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,7 +60,8 @@ export default function RootLayout({
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [cart, setCart] = useState([]);
   const [, setProducts] = useState([]);
-  const [headerVisible, setHeaderVisible] = useState(true);
+
+  const headerVisible = useHeaderVisibility()
 
   useEffect(() => {
     const userToken = localStorage.getItem("userToken");
@@ -91,8 +93,8 @@ export default function RootLayout({
     keywords: "aros, aros watch, Aros, Aros Watch, montre personnalisée, montre personnalisable, boutique en ligne, design de montres",
     ogTitle: "Aros Watch",
     ogDescription: "Personnalisation de montres",
-    ogUrl: "https://www.aroswatch.be",
-    ogImage: "/public/aros.JPG",
+    ogUrl: "https://aroswatch.be",
+    ogImage: "/public/favicon.ico",
   })
 
   return (
@@ -125,7 +127,7 @@ export default function RootLayout({
         <meta property="og:image" content={MetaTags.ogImage} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <header className={`header ${headerVisible ? "" : "hidden"}`}>
+      <header className={clsx("header", { hidden: !headerVisible })}>
           <div>
             <Link href="/"><img id="logo" src="/aros-2.png" alt="logo" height={110} width={160} /></Link>
           </div>
