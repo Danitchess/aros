@@ -94,7 +94,7 @@ export default function RootLayout({
     ogTitle: "Aros Watch",
     ogDescription: "Personnalisation de montres",
     ogUrl: "https://aroswatch.be",
-    ogImage: "/public/favicon.ico",
+    ogImage: "/public/aros.png",
   })
 
   return (
