@@ -3062,7 +3062,7 @@ span {
   
   .panier-container {
     width: 100%;
-    margin-left: 30px;
+    margin-left: 0px;
   }
   
   .img-watch {
@@ -3151,7 +3151,7 @@ span {
   
   .panier-container {
     width: 100%;
-    margin-left: 90px;
+    margin-left: 0px;
   }
   
   .img-watch {
@@ -3227,6 +3227,34 @@ span {
     display: flex;
     margin-top: 215px;
     margin-left: 200px;
+  }
+
+  .btn-commander {
+    border-radius: 5px;
+    font-size: 13px;
+    width: 120px;
+    position: relative;
+  }
+
+  .btn-commander .text {
+    margin-left: -18px; 
+  }
+  
+  .btn-commander i {
+    font-size: 17px;
+  }
+  
+  .btn-remove-watch {
+    border-radius: 5px;
+    padding: 2px 0px;
+    font-size: 13px;
+    width: 50%;
+  }
+  
+  .btn-remove-all {
+    font-size: 16px;
+    width: 120px;
+    margin-right: 20px;
   }
   
 }
