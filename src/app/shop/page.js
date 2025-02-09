@@ -39,6 +39,8 @@ export default function PersoMontre() {
         { id: 14, type: 'Bracelet', name: 'Bracelet argent', price: 20, imageUrl: '/img-bracelet/bracelet-argent-20mm.png' },
         { id: 0o14, type: 'Bracelet', name: 'Bracelet argent', price: 20, imageUrl: '/img-bracelet/bracelet-argent-20mm-14.1.png' },
         { id: 17, type: 'Bracelet', name: 'Bracelet argent Royal Oak', price: 30, imageUrl: '/img-bracelet/bracelet-argent-ap.png' },
+        { id: 106, type: 'Bracelet', name: 'Bracelet noir Royal Oak', price: 30, imageUrl: '/img-bracelet/bracelet-noir-ap.png' },
+        { id: 107, type: 'Bracelet', name: 'Bracelet rose Royal Oak', price: 30, imageUrl: '/img-bracelet/bracelet-rose-ap.png' },
         { id: 18, type: 'Bracelet', name: 'Bracelet argent', price: 30, imageUrl: '/img-bracelet/bracelet-argent-president.png' },
         { id: 19, type: 'Bracelet', name: 'Bracelet cuir de bovin noir alligator', price: 18, imageUrl: '/img-bracelet/bracelet-cuir-noir-alligator.png' },
         { id: 101, type: 'Bracelet', name: 'Bracelet cuir de bovin noir lisse', price: 18, imageUrl: '/img-bracelet/bracelet-cuir-noir-lisse.png' },
@@ -55,6 +57,8 @@ export default function PersoMontre() {
         { id: 23, type: 'Boitier', name: 'Boitier argent et or, lunette lisse ', price: 40, imageUrl: '/img-boitier/boitier-lisse-argent-or-39mm.png' },
         { id: 24, type: 'Boitier', name: 'Boitier argent et rose, lunette entaillée ', price: 40, imageUrl: '/img-boitier/boitier-seiko-argent-rose-39mm.png' },
         { id: 25, type: 'Boitier', name: 'Boitier argent Royal Oak', price: 45, imageUrl: '/img-boitier/boitier-argent-ap.png' },
+        { id: 27, type: 'Boitier', name: 'Boitier noir Royal Oak', price: 45, imageUrl: '/img-boitier/boitier-noir-ap.png' },
+        { id: 28, type: 'Boitier', name: 'Boitier rose Royal Oak', price: 45, imageUrl: '/img-boitier/boitier-rose-ap.png' },
         { id: 26, type: 'Boitier', name: 'Boitier argent, lunette lisse', price: 30, imageUrl: '/img-boitier/boitier-argent-president.png' },
 
         { id: 30, type: 'Cadran', name: 'Cadran noir', price: 31, imageUrl: '/img-cadrans/cadran-noir.png' },
@@ -84,12 +88,12 @@ export default function PersoMontre() {
 
         { id: 50, type: 'Aiguille', name: 'Aiguilles argent rectangulaires', price: 6, imageUrl: '/img-aiguilles/aiguilles-argent-rectangle.png' },
         { id: 51, type: 'Aiguille', name: 'Aiguilles or rectangulaires', price: 6, imageUrl: '/img-aiguilles/aiguilles-or-rectangle.png' },
-        { id: 511, type: 'Aiguille', name: 'Aiguilles or rose rectangulaires', price: 6, imageUrl: '/img-aiguilles/aiguilles-or-rose-rectangle.png' },
+        { id: 511, type: 'Aiguille', name: 'Aiguilles rose rectangulaires', price: 6, imageUrl: '/img-aiguilles/aiguilles-or-rose-rectangle.png' },
         { id: 52, type: 'Aiguille', name: 'Aiguilles or bout rond', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-or.png' },
         { id: 53, type: 'Aiguille', name: 'Aiguilles argent bout rond', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-argent.png' },
         { id: 54, type: 'Aiguille', name: 'Aiguilles noires et blanches bout rond', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-noir-blanc.png' },
         { id: 55, type: 'Aiguille', name: 'Aiguilles rondes argent', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-long-argent.png' },
-        { id: 56, type: 'Aiguille', name: 'Aiguilles rondes or rose', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-long-or-rose.png' },
+        { id: 56, type: 'Aiguille', name: 'Aiguilles rondes rose', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-long-or-rose.png' },
         { id: 57, type: 'Aiguille', name: 'Aiguilles rondes or', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-long-or.png' },
         { id: 58, type: 'Aiguille', name: 'Aiguilles rondes noires', price: 6, imageUrl: '/img-aiguilles/aiguilles-rond-long-noir.png' },
         { id: 59, type: 'Aiguille', name: 'Aiguilles noires bout carré', price: 6, imageUrl: '/img-aiguilles/aiguilles-carre-noir.png' },
@@ -101,12 +105,14 @@ export default function PersoMontre() {
 
         { id: 60, type: 'Trotteuse', name: 'Trotteuse argent', price: 4, imageUrl: '/img-trotteuses/trotteuse-argent.png' },
         { id: 61, type: 'Trotteuse', name: 'Trotteuse argent très fine', price: 4, imageUrl: '/img-trotteuses/trotteuse-argent-fine.png' },
+        { id: 601, type: 'Trotteuse', name: 'Trotteuse or très fine', price: 4, imageUrl: '/img-trotteuses/trotteuse-or-fine.png' },
+        { id: 611, type: 'Trotteuse', name: 'Trotteuse rose très fine', price: 4, imageUrl: '/img-trotteuses/trotteuse-rose-fine.png' },
         { id: 62, type: 'Trotteuse', name: 'Trotteuse or très fine avec rond', price: 4, imageUrl: '/img-trotteuses/trotteuse-rond-or.png' },
         { id: 63, type: 'Trotteuse', name: 'Trotteuse argent très fine avec rond', price: 4, imageUrl: '/img-trotteuses/trotteuse-rond-argent.png' },
         { id: 64, type: 'Trotteuse', name: 'Trotteuse noire très fine avec rond', price: 4, imageUrl: '/img-trotteuses/trotteuse-rond-noir.png' },
-        { id: 65, type: 'Trotteuse', name: 'Trotteuse or très fine', price: 4, imageUrl: '/img-trotteuses/trotteuse-rond-or-rose.png' },
+        { id: 65, type: 'Trotteuse', name: 'Trotteuse rose très fine avec rond', price: 4, imageUrl: '/img-trotteuses/trotteuse-rond-or-rose.png' },
         { id: 67, type: 'Trotteuse', name: 'Trotteuse éclair argent', price: 4, imageUrl: '/img-trotteuses/trotteuse-eclair-argent.png' },
-        { id: 68, type: 'Trotteuse', name: 'Trotteuse éclair or rose', price: 4, imageUrl: '/img-trotteuses/trotteuse-eclair-or-rose.png' },
+        { id: 68, type: 'Trotteuse', name: 'Trotteuse éclair rose', price: 4, imageUrl: '/img-trotteuses/trotteuse-eclair-or-rose.png' },
         { id: 69, type: 'Trotteuse', name: 'Trotteuse éclair or', price: 4, imageUrl: '/img-trotteuses/trotteuse-eclair-or.png' },
 
         { id: 70, type: 'Couleur Date', name: 'Mouvement NH35 blanc', price: 60, imageUrl: 'date-blanc.png' },
@@ -144,6 +150,8 @@ export default function PersoMontre() {
                 { id: 23, src: "/img-boitier/boitier-lisse-argent-or-39mm.2.png" },
                 { id: 24, src: "/img-boitier/boitier-seiko-argent-rose-39mm.2.png" },
                 { id: 25, src: "/img-boitier/boitier-argent-ap.2.png" },
+                { id: 27, src: "/img-boitier/boitier-noir-ap.2.png" },
+                { id: 28, src: "/img-boitier/boitier-rose-ap.2.png" },
                 { id: 26, src: "/img-boitier/boitier-argent-president.2.png" },
             ]
         },
@@ -164,6 +172,8 @@ export default function PersoMontre() {
                 { id: 13, src: "/img-bracelet/bracelet-seiko-argent-rose-20mm.png" },
                 { id: 14, src: "/img-bracelet/bracelet-argent-20mm.2.png" },
                 { id: 17, src: "/img-bracelet/bracelet-argent-ap.png" },
+                { id: 106, src: "/img-bracelet/bracelet-noir-ap.png" },
+                { id: 107, src: "/img-bracelet/bracelet-rose-ap.png" },
                 { id: 18, src: "/img-bracelet/bracelet-argent-president.2.png" },
                 { id: 101, src: "/img-bracelet/bracelet-cuir-noir-lisse.2.png" },
                 { id: 102, src: "/img-bracelet/bracelet-cuir-brun-clair-lisse.2.png" },
@@ -245,6 +255,8 @@ export default function PersoMontre() {
             name: 'Trotteuses', options: [
                 { id: 60, src: "/img-trotteuses/trotteuse-argent.2.png" },
                 { id: 61, src: "/img-trotteuses/trotteuse-argent-fine.2.png" },
+                { id: 601, src: "/img-trotteuses/trotteuse-or-fine.2.png" },
+                { id: 611, src: "/img-trotteuses/trotteuse-rose-fine.2.png" },
                 { id: 62, src: "/img-trotteuses/trotteuse-rond-or.2.png" },
                 { id: 63, src: "/img-trotteuses/trotteuse-rond-argent.2.png" },
                 { id: 64, src: "/img-trotteuses/trotteuse-rond-noir.2.png" },
@@ -279,7 +291,7 @@ export default function PersoMontre() {
             cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
-            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
+            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611],
             'couleur date': [70, 71],
             loupe: [80, 81]
         };
@@ -302,7 +314,7 @@ export default function PersoMontre() {
             cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
-            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
+            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611],
             'couleur date': [70, 71],
             loupe: [81]
         },
@@ -315,7 +327,7 @@ export default function PersoMontre() {
             cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
-            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
+            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611],
             'couleur date': [70, 71],
             loupe: [80, 81]
         },
@@ -326,11 +338,35 @@ export default function PersoMontre() {
             cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
-            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611, 621, 631, 641],
+            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611],
             'couleur date': [70, 71],
             loupe: []
         },
+
         26: generateRules(),
+
+        27: {
+            'taille du boitier': [],
+            bracelets: [106],
+            lunettes: [],
+            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
+            'couleur logo': [40, 41, 42],
+            aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
+            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611],
+            'couleur date': [70, 71],
+            loupe: []
+        },
+        28: {
+            'taille du boitier': [],
+            bracelets: [107],
+            lunettes: [],
+            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
+            'couleur logo': [40, 41, 42],
+            aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
+            trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611],
+            'couleur date': [70, 71],
+            loupe: []
+        },
         1001: { bracelets: [15, 16], cadrans: [], 'couleur logo': [], aiguilles: [], trotteuses: [], 'couleur date': [], loupe: [] },
 
     };
@@ -411,8 +447,8 @@ export default function PersoMontre() {
         const firstSelection = selectedOptions[firstCategoryName];
         const fifthSelection = selectedOptions[fifthCategoryName];
 
-        const boitiersToSkip = [20, 22, 23, 24, 25, 26];
-        const sizeToSkip = [21, 25]
+        const boitiersToSkip = [20, 22, 23, 24, 25, 26, 27, 28];
+        const sizeToSkip = [21, 25, 27, 28]
         const logoToSkip = [391]
 
         if (firstSelection && boitiersToSkip.includes(parseInt(firstSelection, 10)) && currentCategoryName === "lunettes") {
@@ -464,7 +500,7 @@ export default function PersoMontre() {
         const currentCategoryName = categories[currentCategory]?.name.toLowerCase();
 
         const dateToSkip = [351];
-        const loupeToSkip = [25]
+        const loupeToSkip = [25, 27, 28]
 
         if (currentCategoryName === "trotteuses") {
             const fifthSelection = selectedOptions[categories[4].name.toLowerCase()];
@@ -520,9 +556,9 @@ export default function PersoMontre() {
             return false;
         }
         const categoryName = categories[categoryIndex]?.name.toLowerCase();
-        const boitiersToSkip = [20, 22, 23, 24, 25, 26];
-        const sizeToSkip = [21, 25]
-        const loupeToSkip = [25]
+        const boitiersToSkip = [20, 22, 23, 24, 25, 26, 27, 28];
+        const sizeToSkip = [21, 25, 27, 28]
+        const loupeToSkip = [25, 27, 28]
         const logoToSkip = [391]
 
         if (categoryName === "lunettes") {
@@ -615,11 +651,11 @@ export default function PersoMontre() {
         return categories.every(category => {
             const selectedPart = category.name.toLowerCase();
 
-            if (selectedPart === 'lunettes' && [20, 22, 23, 24, 25, 26].includes(selectedThumbnails['boîtiers'])) {
+            if (selectedPart === 'lunettes' && [20, 22, 23, 24, 25, 26, 27, 28].includes(selectedThumbnails['boîtiers'])) {
                 return true;
             }
 
-            if (selectedPart === 'taille du boitier' && [21, 25].includes(selectedThumbnails['boîtiers'])) {
+            if (selectedPart === 'taille du boitier' && [21, 25, 27, 28].includes(selectedThumbnails['boîtiers'])) {
                 return true;
             }
 
@@ -639,7 +675,7 @@ export default function PersoMontre() {
                 return false;
             }
 
-            if (selectedPart === 'loupe' && [25].includes(selectedThumbnails['boîtiers'])) {
+            if (selectedPart === 'loupe' && [25, 27, 28].includes(selectedThumbnails['boîtiers'])) {
                 return true;
             }
 
@@ -676,7 +712,7 @@ export default function PersoMontre() {
                                 ) ||
                                 (categories[currentCategory]?.name.toLowerCase() === "couleur date" &&
                                     selectedOptions[categories[0].name.toLowerCase()] &&
-                                    [25].includes(parseInt(selectedOptions[categories[0].name.toLowerCase()], 10))
+                                    [25, 27, 28].includes(parseInt(selectedOptions[categories[0].name.toLowerCase()], 10))
                                 )
                             }
                         >

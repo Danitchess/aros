@@ -23,35 +23,31 @@ const geistMono = Geist_Mono({
 
 function useHeaderVisibility() {
   const [headerVisible, setHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let timeout = null;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      clearTimeout(timeout);
 
-      timeout = setTimeout(() => {
-        if (currentScrollY > lastScrollY) {
-          setHeaderVisible(false);
-        } else {
-          setHeaderVisible(true);
-        }
-        lastScrollY = currentScrollY;
-      }, 100); 
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setHeaderVisible(false); // Masquer le header quand on scroll vers le bas
+      } else {
+        setHeaderVisible(true); // Montrer le header quand on scroll vers le haut
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      clearTimeout(timeout);
     };
-  }, []);
+  }, [lastScrollY]);
 
   return headerVisible;
 }
+
 
 export default function RootLayout({
   children,
@@ -126,7 +122,9 @@ export default function RootLayout({
         <meta property="og:url" content={MetaTags.ogUrl} />
         <meta property="og:image" content={MetaTags.ogImage} />
       </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+
       <header className={clsx("header", { hidden: !headerVisible })}>
           <div>
             <Link href="/"><img id="logo" src="/aros-2.png" alt="logo" height={110} width={160} /></Link>
