@@ -38,7 +38,7 @@ export default function Home() {
             </Link>
 
             <p className="model-name">Aros Nautilus One</p>
-            <p className="model-desc">Automatique mécanique, 45.5mm</p>
+            <p className="model-desc">Automatique mécanique, 40mm</p>
             <p className="prix-model-home">165 €</p>
             
           </li>
