@@ -5,22 +5,22 @@ import { useCart } from '../context/CartContext';
 export default function Montre1() {
   const [mainImage, setMainImage] = useState('/img-modeles/modele-nautilus1.png');
   const [selectedImageName, setSelectedImageName] = useState('Argent : Dégradé noir vers bleu'); 
-  const [selectedPrice, setSelectedPrice] = useState(160); 
+  const [selectedPrice, setSelectedPrice] = useState(165); 
   const { setCart } = useCart();
   const [cartState, setCartState] = useState([]);
 
 
   const [smallImages] = useState([
-    { id: 1, price: 160, name: 'Argent : Dégradé noir bleu', src: '/img-modeles/modele-nautilus1.png' },
-    { id: 2, price: 160, name: 'Argent : Turquoise', src: '/img-modeles/modele-nautilus2.png' },
-    { id: 3, price: 160, name: 'Argent : Blanc', src: '/img-modeles/modele-nautilus3.png' },
-    { id: 4, price: 160, name: 'Argent : Vert', src: '/img-modeles/modele-nautilus4.png' },
-    { id: 5, price: 160, name: 'Argent : Noir', src: '/img-modeles/modele-nautilus5.png' },
-    { id: 6, price: 160, name: 'Argent : Dégradé noir vert', src: '/img-modeles/modele-nautilus6.png' },
-    { id: 7, price: 165, name: 'Rose : Brun', src: '/img-modeles/modele-nautilus7.png' },
-    { id: 8, price: 165, name: 'Rose : Dégradé noir vert', src: '/img-modeles/modele-nautilus8.png' },
-    { id: 9, price: 165, name: 'Rose : Noir', src: '/img-modeles/modele-nautilus9.png' },
-    { id: 10, price: 165, name: 'Rose : Dégradé noir bleu', src: '/img-modeles/modele-nautilus10.png' },
+    { id: 1, price: 165, name: 'Argent : Dégradé noir bleu', src: '/img-modeles/modele-nautilus1.png' },
+    { id: 2, price: 165, name: 'Argent : Turquoise', src: '/img-modeles/modele-nautilus2.png' },
+    { id: 3, price: 165, name: 'Argent : Blanc', src: '/img-modeles/modele-nautilus3.png' },
+    { id: 4, price: 165, name: 'Argent : Vert', src: '/img-modeles/modele-nautilus4.png' },
+    { id: 5, price: 165, name: 'Argent : Noir', src: '/img-modeles/modele-nautilus5.png' },
+    { id: 6, price: 165, name: 'Argent : Dégradé noir vert', src: '/img-modeles/modele-nautilus6.png' },
+    { id: 7, price: 170, name: 'Rose : Brun', src: '/img-modeles/modele-nautilus7.png' },
+    { id: 8, price: 170, name: 'Rose : Dégradé noir vert', src: '/img-modeles/modele-nautilus8.png' },
+    { id: 9, price: 170, name: 'Rose : Noir', src: '/img-modeles/modele-nautilus9.png' },
+    { id: 10, price: 170, name: 'Rose : Dégradé noir bleu', src: '/img-modeles/modele-nautilus10.png' },
   ]);
 
 

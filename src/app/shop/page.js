@@ -57,8 +57,8 @@ export default function PersoMontre() {
         { id: 23, type: 'Boitier', name: 'Boitier argent et or, lunette lisse ', price: 40, imageUrl: '/img-boitier/boitier-lisse-argent-or-39mm.png' },
         { id: 24, type: 'Boitier', name: 'Boitier argent et rose, lunette entaillée ', price: 40, imageUrl: '/img-boitier/boitier-seiko-argent-rose-39mm.png' },
         { id: 25, type: 'Boitier', name: 'Boitier argent Royal Oak', price: 45, imageUrl: '/img-boitier/boitier-argent-ap.png' },
-        { id: 27, type: 'Boitier', name: 'Boitier noir Royal Oak', price: 45, imageUrl: '/img-boitier/boitier-noir-ap.png' },
-        { id: 28, type: 'Boitier', name: 'Boitier rose Royal Oak', price: 45, imageUrl: '/img-boitier/boitier-rose-ap.png' },
+       /* { id: 27, type: 'Boitier', name: 'Boitier noir Royal Oak', price: 45, imageUrl: '/img-boitier/boitier-noir-ap.png' },
+        { id: 28, type: 'Boitier', name: 'Boitier rose Royal Oak', price: 45, imageUrl: '/img-boitier/boitier-rose-ap.png' },*/
         { id: 26, type: 'Boitier', name: 'Boitier argent, lunette lisse', price: 30, imageUrl: '/img-boitier/boitier-argent-president.png' },
 
         { id: 30, type: 'Cadran', name: 'Cadran noir', price: 31, imageUrl: '/img-cadrans/cadran-noir.png' },
@@ -81,6 +81,20 @@ export default function PersoMontre() {
         { id: 361, type: 'Cadran', name: 'Cadran rose pâle mat', price: 31, imageUrl: '/img-cadrans/cadran-rose-pale.png' },
         { id: 371, type: 'Cadran', name: 'Cadran rouge mat', price: 31, imageUrl: '/img-cadrans/cadran-rouge.png' },
         { id: 381, type: 'Cadran', name: 'Cadran turquoise mat', price: 31, imageUrl: '/img-cadrans/cadran-turquoise.png' },
+
+        { id: 392, type: 'Cadran', name: 'Cadran Royal Oak noir', price: 31, imageUrl: '/img-cadrans/cadran-ap-noir.png' },
+        { id: 302, type: 'Cadran', name: 'Cadran Royal Oak blanc', price: 31, imageUrl: '/img-cadrans/cadran-ap-blanc.png' },
+        { id: 312, type: 'Cadran', name: 'Cadran Royal Oak bleu vert', price: 31, imageUrl: '/img-cadrans/cadran-ap-bleu-vert.png' },
+        { id: 322, type: 'Cadran', name: 'Cadran Royal Oak bleu', price: 31, imageUrl: '/img-cadrans/cadran-ap-bleu.png' },
+        { id: 332, type: 'Cadran', name: 'Cadran Royal Oak bleu clair', price: 31, imageUrl: '/img-cadrans/cadran-ap-bleu-clair.png' },
+        { id: 342, type: 'Cadran', name: 'Cadran Royal Oak blanc et rose', price: 31, imageUrl: '/img-cadrans/cadran-ap-blanc-rose.png' },
+        { id: 352, type: 'Cadran', name: 'Cadran Royal Oak jaune', price: 31, imageUrl: '/img-cadrans/cadran-ap-jaune.png' },
+        { id: 362, type: 'Cadran', name: 'Cadran Royal Oak orange', price: 31, imageUrl: '/img-cadrans/cadran-ap-orange.png' },
+        { id: 372, type: 'Cadran', name: 'Cadran Royal Oak brun grisé', price: 31, imageUrl: '/img-cadrans/cadran-ap-brun-gris.png' },
+        { id: 382, type: 'Cadran', name: 'Cadran Royal Oak vert kaki', price: 31, imageUrl: '/img-cadrans/cadran-ap-vert.png' },
+
+        /*303 prochain*/
+
 
         { id: 40, type: 'Couleur Logo', name: 'Logo noir', price: 0, imageUrl: '/img-logos/logo-noir.png' },
         { id: 41, type: 'Couleur Logo', name: 'Logo blanc', price: 0, imageUrl: '/img-logos/logo-blanc.png' },
@@ -150,8 +164,8 @@ export default function PersoMontre() {
                 { id: 23, src: "/img-boitier/boitier-lisse-argent-or-39mm.2.png" },
                 { id: 24, src: "/img-boitier/boitier-seiko-argent-rose-39mm.2.png" },
                 { id: 25, src: "/img-boitier/boitier-argent-ap.2.png" },
-                { id: 27, src: "/img-boitier/boitier-noir-ap.2.png" },
-                { id: 28, src: "/img-boitier/boitier-rose-ap.2.png" },
+               /* { id: 27, src: "/img-boitier/boitier-noir-ap.2.png" },
+                { id: 28, src: "/img-boitier/boitier-rose-ap.2.png" },*/
                 { id: 26, src: "/img-boitier/boitier-argent-president.2.png" },
             ]
         },
@@ -222,6 +236,19 @@ export default function PersoMontre() {
                 { id: 361, src: "/img-cadrans/cadran-rose-pale.2.png" },
                 { id: 371, src: "/img-cadrans/cadran-rouge.2.png" },
                 { id: 381, src: "/img-cadrans/cadran-turquoise.2.png" },
+
+                { id: 392, src: "/img-cadrans/cadran-ap-noir.2.png" },
+                { id: 302, src: "/img-cadrans/cadran-ap-blanc.2.png" },
+                { id: 312, src: "/img-cadrans/cadran-ap-bleu-vert.2.png" },
+                { id: 322, src: "/img-cadrans/cadran-ap-bleu.2.png" },
+                { id: 332, src: "/img-cadrans/cadran-ap-bleu-clair.2.png" },
+                { id: 342, src: "/img-cadrans/cadran-ap-blanc-rose.2.png" },
+                { id: 352, src: "/img-cadrans/cadran-ap-jaune.2.png" },
+                { id: 362, src: "/img-cadrans/cadran-ap-orange.2.png" },
+                { id: 372, src: "/img-cadrans/cadran-ap-brun-gris.2.png" },
+                { id: 382, src: "/img-cadrans/cadran-ap-vert.2.png" },
+
+                { id: 303, src: "prochain" },
 
             ]
         },
@@ -335,7 +362,7 @@ export default function PersoMontre() {
             'taille du boitier': [],
             bracelets: [17],
             lunettes: [],
-            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
+            cadrans: [392, 302, 312, 322, 332, 342, 352, 362, 372, 382],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
             trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611],
@@ -349,7 +376,7 @@ export default function PersoMontre() {
             'taille du boitier': [],
             bracelets: [106],
             lunettes: [],
-            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
+            cadrans: [392, 302, 312, 322, 332, 342, 352, 362, 372, 382],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
             trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611],
@@ -360,7 +387,7 @@ export default function PersoMontre() {
             'taille du boitier': [],
             bracelets: [107],
             lunettes: [],
-            cadrans: [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 301, 311, 321, 331, 341, 351, 361, 371, 381, 391],
+            cadrans: [392, 302, 312, 322, 332, 342, 352, 362, 372, 382],
             'couleur logo': [40, 41, 42],
             aiguilles: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 501, 511, 521, 531, 541],
             trotteuses: [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 601, 611],
